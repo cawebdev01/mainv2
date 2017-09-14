@@ -1,4 +1,5 @@
 import { AuthService } from '../providers/auth-service';
+import { HttpModule } from '@angular/http'
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule, } from 'ionic-angular';
@@ -14,6 +15,8 @@ import { AbooksPage } from '../pages/abooks/abooks';
 import { CalendarsPage } from '../pages/calendars/calendars';
 import { StoragePage } from '../pages/storage/storage';
 import { TasksPage } from '../pages/tasks/tasks';
+import { HttpProvider } from '../providers/http/http';
+import { MailsService } from '../providers/mails-service/mails-service';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { TasksPage } from '../pages/tasks/tasks';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -49,7 +53,9 @@ import { TasksPage } from '../pages/tasks/tasks';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthService
+    AuthService,
+    HttpProvider,
+    MailsService,
   ]
 })
 export class AppModule {}

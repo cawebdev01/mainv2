@@ -1,0 +1,100 @@
+[
+    {
+      "abid": "_xamUAB:1",
+      "objectId": "7",
+      "objClass": "contact",
+      "icon": "contactlistContact",
+      "flagged": "",
+      "label": "Clément Arcamone",
+      "firstname": "Clément",
+      "lastname": "ARCAMONE",
+      "composeName": "Clément ARCAMONE",
+      "preferredEmail": "arcamone@xandmail.com",
+      "preferredPhone": "0615057776",
+      "groups": [
+        ]
+  },{
+      "abid": "_xamUAB:1",
+      "objectId": "5",
+      "objClass": "contact",
+      "icon": "contactlistContact",
+      "flagged": "",
+      "label": "SDL",
+      "firstname": "Sabrina",
+      "lastname": "DI LEO",
+      "composeName": "Sabrina DI LEO",
+      "preferredEmail": "dileo@xandmail.com",
+      "preferredPhone": "0662070302",
+      "groups": [
+        ]
+  },{
+      "abid": "_xamUAB:1",
+      "objectId": "6",
+      "objClass": "contact",
+      "icon": "contactlistContact",
+      "flagged": "",
+      "label": "EH",
+      "firstname": "Eric",
+      "lastname": "HERBAUT",
+      "composeName": "Eric HERBAUT",
+      "preferredEmail": "herbaut@xandmail.com",
+      "preferredPhone": "0680272226",
+      "groups": [
+        ]
+  },{
+      "abid": "_xamUAB:1",
+      "objectId": "1",
+      "objClass": "contact",
+      "icon": "contactlistContact",
+      "flagged": "",
+      "label": "AM",
+      "firstname": "Arnaud",
+      "lastname": "MOISAN",
+      "composeName": "Arnaud MOISAN",
+      "preferredEmail": "moisan@xandmail.com",
+      "preferredPhone": "0612695787",
+      "groups": [
+        ]
+  },{
+      "abid": "_xamUAB:1",
+      "objectId": "2",
+      "objClass": "contact",
+      "icon": "contactlistContact",
+      "flagged": "",
+      "label": "AN",
+      "firstname": "Alexandre",
+      "lastname": "NAOUMOVITCH",
+      "composeName": "Alexandre NAOUMOVITCH",
+      "preferredEmail": "naoumovitch@xandmail.com",
+      "preferredPhone": "0670721672",
+      "groups": [
+        ]
+  },{
+      "abid": "_xamUAB:1",
+      "objectId": "4",
+      "objClass": "contact",
+      "icon": "contactlistContact",
+      "flagged": "",
+      "label": "ST",
+      "firstname": "Southinh",
+      "lastname": "SOUNANTHANAM",
+      "composeName": "Southinh SOUNANTHANAM",
+      "preferredEmail": "southinh@xandmail.com",
+      "preferredPhone": "0674829412",
+      "groups": [
+        ]
+  },{
+      "abid": "_xamUAB:1",
+      "objectId": "3",
+      "objClass": "contact",
+      "icon": "contactlistContact",
+      "flagged": "",
+      "label": "XaM",
+      "firstname": "XANDMAIL",
+      "lastname": "",
+      "composeName": "XANDMAIL",
+      "preferredEmail": "",
+      "preferredPhone": "0141065225",
+      "groups": [
+        ]
+  }]

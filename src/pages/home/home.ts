@@ -34,7 +34,7 @@ export class HomePage {
     this.nav.push(NotesPage)
   }
   public tasks(){
-  this.nav.push(TasksPage)
+    this.nav.push(TasksPage)
   }
   public storage(){
     this.nav.push(StoragePage)
