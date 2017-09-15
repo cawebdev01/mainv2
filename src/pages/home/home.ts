@@ -1,3 +1,4 @@
+//import { MyApp } from '../../app/app.component';
 import { Component } from '@angular/core';
 import { NavController, Loading, } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
@@ -9,6 +10,7 @@ import { TasksPage } from '../tasks/tasks';
 import { CalendarsPage } from '../calendars/calendars';
 import { AbooksPage } from '../abooks/abooks';
 import { StoragePage } from '../storage/storage';
+import { GlobalService } from '../../providers/global-service/global-service'
 
 @Component({
   selector: 'page-home',
@@ -17,12 +19,16 @@ import { StoragePage } from '../storage/storage';
 export class HomePage {
   username = '';
   email = '';
+  mailnbr = 8;
+  abooknbr = 3;
+  notesnbr = 5;
+  tasksnbr = 4;
+  calnbr = 2;
+  storagenbr = 6;
+
   constructor(private nav: NavController, private auth: AuthService,){
-    /*let info = this.auth.getUserInfo();
-    this.username = info['name'];
-    this.email = info['email'];*/
-    this.username = "Clement";
-    this.email = "ca@xam.fr";
+  /*  this.username = "Clement";
+    this.email = "ca@xam.fr"*/;
   }
   public mails(){
     this.nav.push(MailsPage)

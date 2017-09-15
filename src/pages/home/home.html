@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar color="dark">
     <ion-title>
-      Member Area
+      Home
     </ion-title>
     <ion-buttons end>
       <button ion-button (click)="logout()">
@@ -12,13 +12,27 @@
 </ion-header>
  
 <ion-content class="home" padding>
-  <h3>Welcome inside, {{username}}!</h3>
+  <h3>Welcome inside, {{ essai }}!</h3>
   Your Email is: {{email}}
 <br><br>
-<button ion-button class="mails-btn" full (click)="mails()">Mails</button><br>
-<button ion-button class="contacts-btn" full (click)="abooks()">Contacts</button><br>
-<button ion-button class="notes-btn" full (click)="notes()">Notes</button><br>  
-<button ion-button class="tasks-btn" full (click)="tasks()">Tasks</button><br>
-<button ion-button class="calendars-btn" full (click)="calendars()">Calendars</button><br>
-<button ion-button class="storage-btn" full (click)="storage()">Storage</button>
+<button ion-button class="mails-btn" full (click)="mails()">
+  Mails
+  <ion-badge item-end>{{ mailnbr }}</ion-badge>
+</button><br>
+<button ion-button class="contacts-btn" full (click)="abooks()">Contacts
+  <ion-badge item-end>{{ abooknbr }}</ion-badge>  
+</button><br>
+<button ion-button class="notes-btn" full (click)="notes()">Notes
+  <ion-badge item-end>{{ notesnbr }}</ion-badge>  
+</button><br>  
+<button ion-button class="tasks-btn" full (click)="tasks()">Tasks
+  <ion-badge item-end>{{ tasksnbr }}</ion-badge>  
+</button><br>
+<button ion-button class="calendars-btn" full (click)="calendars()">Calendars
+  <ion-badge item-end>{{ calnbr }}</ion-badge>  
+</button><br>
+<button ion-button class="storage-btn" full (click)="storage()">Storage
+  <ion-badge item-end>{{ storagenbr }}</ion-badge>
+
+</button>
 </ion-content>
