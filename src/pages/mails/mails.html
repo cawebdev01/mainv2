@@ -5,21 +5,17 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>mails</ion-title>
+    <ion-title>Mails</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content padding>
-  <p>l'object maildata contient : <br></p>
+  <p> Vous avez {{ newMsg }} messages(s) non lu(s) parmis vos {{msgNb}}. </p><br>
   <ion-list>
-    <button (click)="loadMails()">Les Messages</button>
-  <!--ion-item text-wrap *ngFor="let item of mailsData"-->
-    <!--p> 
-      {{ mailsData }} avec le titre </p-->
-  <!--/ion-item-->
-</ion-list>
+    <ion-item text-wrap *ngFor="let mail of mails">
+      <p>from: {{ mail.from }}, 
+        <br>  le {{ mail.date }} </p>
+      <p>{{ mail.subject }}</p>
+    </ion-item>
+  </ion-list> 
 </ion-content>

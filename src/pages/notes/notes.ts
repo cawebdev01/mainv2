@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
+import { NotesService } from '../../providers/notes-service/notes-service'
 /**
  * Generated class for the NotesPage page.
  *
@@ -14,11 +14,29 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class NotesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private notesService: NotesService,
+  ) {
+    this.loadNotes();
   }
+  status;
+  data;
+  sortInfo;
+  pageInfo;
+  countTotal;
+  //itemslist;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NotesPage');
+  loadNotes(){
+    this.notesService.getNotes().subscribe(notes => {
+      this.status = notes.status,
+      this.data = notes.data,
+      this.sortInfo = notes.sortInfo,
+      this.pageInfo = notes.pageInfo,
+      this.countTotal = notes.countTotal
+     // this.itemslist = notes.itemslist
+    })
   }
 
 }

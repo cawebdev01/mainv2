@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
  
 export class User {
-  name: string;
+  password : string;
   email: string;
  
-  constructor(name: string, email: string) {
-    this.name = name;
+  constructor(password: string, email: string) {
+    this.password = password;
     this.email = email;
   }
 }
@@ -15,9 +16,12 @@ export class User {
 @Injectable()
 export class AuthService {
   currentUser: User;
- 
-  public login(credentials) {
-    if (credentials.email === null || credentials.password === null) {
+  email;
+  password;
+  constructor(public http: Http){}
+  public login(/*credentials*/email, password) {
+    return this.http.get('https://www1.dc.xandmail.com/eh/v4.2/testbuild_aruba_staff/authenticate.php?login='+email+'&password='+password+'&lang=fr&service=leggera').map((res:Response) => res.json());
+    /*if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
       return Observable.create(observer => {
@@ -27,21 +31,9 @@ export class AuthService {
         observer.next(access);
         observer.complete();
       });
-    }
+    }*/
   }
- 
-  public register(credentials) {
-    if (credentials.email === null || credentials.password === null) {
-      return Observable.throw("Please insert credentials");
-    } else {
-      // At this point store the credentials to your backend!
-      return Observable.create(observer => {
-        observer.next(true);
-        observer.complete();
-      });
-    }
-  }
- 
+  
   public getUserInfo() : User {
     return this.currentUser;
   }

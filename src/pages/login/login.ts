@@ -10,7 +10,8 @@ import { HomePage } from '../home/home';
 })
 export class LoginPage {
   loading: Loading;
-  registerCredentials = { email: 'ca@xam.fr', password: 'pass' };
+  email: string;
+  password: string;
  
   constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) { }
  
@@ -19,23 +20,27 @@ export class LoginPage {
   }
  
   public login() {
-    this.showLoading()
-    if(this.registerCredentials.email == "ca@xam.fr" && this.registerCredentials.password == "pass"){
+    this.showLoading();
+    /*if(this.registerCredentials.email == "ca" && this.registerCredentials.password == "pass"){
       this.nav.setRoot(HomePage);
     }
     else{
       this.showError("Access Denied");
-    }
-    /* this.auth.login(this.registerCredentials).subscribe(allowed => {
-      if (allowed) {        
+    }*/
+    this.auth.login(this.email, this.password).subscribe(allowed => {
+      if (allowed.status.err_code == 0) {        
         this.nav.setRoot('HomePage');
-      } else {
+        console.log(allowed);
+      } else if(allowed.status.err_code == 1000) {
+        this.showError(allowed.status.err_text);
+      }
+      else{
         this.showError("Access Denied");
       }
     },
       error => {
         this.showError(error);
-      });*/
+      });
   }
  
   showLoading() {

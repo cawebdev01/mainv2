@@ -17,6 +17,11 @@ import { StoragePage } from '../pages/storage/storage';
 import { TasksPage } from '../pages/tasks/tasks';
 import { HttpProvider } from '../providers/http/http';
 import { MailsService } from '../providers/mails-service/mails-service';
+import { AbooksService } from '../providers/abooks-service/abooks-service';
+import { NotesService } from '../providers/notes-service/notes-service';
+import { TasksService } from '../providers/tasks-service/tasks-service';
+import { StorageService } from '../providers/storage-service/storage-service';
+import { CalendarsService } from '../providers/calendars-service/calendars-service';
 
 @NgModule({
   declarations: [
@@ -56,6 +61,11 @@ import { MailsService } from '../providers/mails-service/mails-service';
     AuthService,
     HttpProvider,
     MailsService,
+    AbooksService,
+    NotesService,
+    TasksService,
+    StorageService,
+    CalendarsService,
   ]
 })
 export class AppModule {}

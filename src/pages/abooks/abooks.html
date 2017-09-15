@@ -5,14 +5,14 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>abooks</ion-title>
+    <ion-title>Contacts</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content padding>
-
+  <ion-list>  
+    <ion-item text-wrap *ngFor="let abook of abooks">
+      {{ abook.label }} ( {{abook.id}} / {{ abook.objectId }})
+    </ion-item>
+  </ion-list>   
 </ion-content>

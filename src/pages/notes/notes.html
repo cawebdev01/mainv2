@@ -5,14 +5,15 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>notes</ion-title>
+    <ion-title>Notes</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content padding>
-
+  <ion-list>
+    <ion-item text-wrap *ngFor="let note of data">
+      <p>{{ note.title }} <br>
+        {{ note.label }}</p>
+    </ion-item>
+  </ion-list>
 </ion-content>

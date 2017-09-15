@@ -18,23 +18,32 @@ import { MailsService } from '../../providers/mails-service/mails-service';
 })
 export class MailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private mailsService: MailsService /*private httpProvider: HttpProvider*/) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private mailsService: MailsService, 
+  ) {
+    this.loadMails();
   }
   
   file: '';
   /*getJsonData(){
     return this.http.get('../../json/mails.json').map(res => res.json());
   }*/
-  mailsData : ["status" ];
+  msgNb : number;
+  newMsg: number;
+  mails: [any];
+  status : object;
   
-  /*loadMails(){
-      this.mailsService.getMails().subscribe(data => {
-      this.mailsData.status = data.status,
-      this.mailsData.newMsg = data.newMsg,
-      this.mailsData.msgNb = data.msgNb,
-      console.log(this.mailsData);
+  loadMails(){
+      this.mailsService.getMails().subscribe(mails => {
+      this.msgNb = mails.msgNb,
+      this.newMsg = mails.newMsg,
+      this.mails = mails.data,
+      this.status = mails.status
+      //console.log(this.mailsData);
    })
-  }*/
+  }
   /*getMails(){
     this.getJsonData().subscribe(
       result => {

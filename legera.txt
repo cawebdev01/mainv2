@@ -1,0 +1,3 @@
+login 
+    full : https://www1.dc.xandmail.com/eh/v4.2/testbuild_aruba_staff/authenticate.php?login=ca00&password=password&lang=en&customer=&theme=&service=leggera&USEHTMLTPL=&login_way=optimized
+    partial : https://www1.dc.xandmail.com/eh/v4.2/testbuild_aruba_staff/authenticate.php?login=ca00&password=password&lang=fr&customer=&theme=&service=leggera
