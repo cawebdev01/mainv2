@@ -17,12 +17,14 @@ import { MailsService } from '../../providers/mails-service/mails-service';
 
 })
 export class MailsPage {
+  public sessionid;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     private mailsService: MailsService, 
   ) {
+    this.sessionid = navParams.get("sessionid");
     this.loadMails();
   }
   
@@ -32,11 +34,11 @@ export class MailsPage {
   }*/
   msgNb : number;
   newMsg: number;
-  mails: [any];
+  mails: any;
   status : object;
   
   loadMails(){
-      this.mailsService.getMails().subscribe(mails => {
+      this.mailsService.getMails(this.sessionid).subscribe(mails => {
       this.msgNb = mails.msgNb,
       this.newMsg = mails.newMsg,
       this.mails = mails.data,

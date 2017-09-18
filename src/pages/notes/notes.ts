@@ -13,12 +13,13 @@ import { NotesService } from '../../providers/notes-service/notes-service'
   templateUrl: 'notes.html',
 })
 export class NotesPage {
-
+  public sessionid;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private notesService: NotesService,
   ) {
+    this.sessionid = navParams.get("sessionid");
     this.loadNotes();
   }
   status;

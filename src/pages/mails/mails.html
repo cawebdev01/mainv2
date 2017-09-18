@@ -10,6 +10,8 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
+  {{ sessionid }} <br>
+  {{ status | json }}
   <p> Vous avez {{ newMsg }} messages(s) non lu(s) parmis vos {{msgNb}}. </p><br>
   <ion-list>
     <ion-item text-wrap *ngFor="let mail of mails">

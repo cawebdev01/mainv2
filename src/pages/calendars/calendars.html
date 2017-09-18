@@ -14,5 +14,13 @@
 
 
 <ion-content padding>
+  {{ sessionid }} <br>
+  liste des calendars:
+  <ion-list>
+    <ion-item text-wrap *ngFor="let cal of callist">
+      <p>Calendar Id : {{ cal.id }}</p>
+      <p>Calendar name: {{ cal.name }}</p>
 
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -13,8 +13,9 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'tasks.html',
 })
 export class TasksPage {
-
+  public sessionid;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.sessionid = navParams.get("sessionid");
   }
 
   ionViewDidLoad() {

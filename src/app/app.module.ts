@@ -24,7 +24,6 @@ import { NotesService } from '../providers/notes-service/notes-service';
 import { TasksService } from '../providers/tasks-service/tasks-service';
 import { StorageService } from '../providers/storage-service/storage-service';
 import { CalendarsService } from '../providers/calendars-service/calendars-service';
-import { GlobalService } from '../providers/global-service/global-service';
 
 @NgModule({
   declarations: [
@@ -71,7 +70,6 @@ import { GlobalService } from '../providers/global-service/global-service';
     TasksService,
     StorageService,
     CalendarsService,
-    GlobalService,
   ]
 })
 export class AppModule {}

@@ -10,6 +10,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
+  {{ sessionid }}
   <ion-list>  
     <ion-item text-wrap *ngFor="let abook of abooks">
       {{ abook.label }} ( {{abook.id}} / {{ abook.objectId }})

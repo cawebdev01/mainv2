@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 export class AbooksService {
 
   constructor(public http: Http) {  }
-  getAbooks(){
-    return this.http.get('http://www1.dc.xandmail.com/ca/testbuild_leggera/cgi-bin/ajaxpab?ACT_CL_TB=1&&FVAL=105&SENS=0&ABID=&tpl=main&ID=IeBAJjpkyZMWrUoVMmBALUq0_rRdq0alCqS.JXehS6_qAJ16da9A-&nocache=896865.9154971194').map((res:Response) => res.json());
+  getAbooks(sessionid){
+    return this.http.get('http://www1.dc.xandmail.com/ca/testbuild_aruba_staff/cgi-bin/mobilepab?ACT_CL_TB=1&FVAL=4&SENS=0&ONLYCT=1&ABID=&tpl=contact_list_light&ID='+sessionid+'&allowAccessMode=&nocache=94064.26919116017&_=1505736101984').map((res:Response) => res.json());
   }
 }

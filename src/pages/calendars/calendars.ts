@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { CalendarsService } from '../../providers/calendars-service/calendars-service';
 
 /**
  * Generated class for the CalendarsPage page.
@@ -13,12 +14,29 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'calendars.html',
 })
 export class CalendarsPage {
+  public sessionid;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private calService : CalendarsService,
+  ) {
+      this.sessionid = navParams.get("sessionid");
+      this.loadCals();
   }
+  id;
+  name;
+  callist : any;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CalendarsPage');
+  loadCals(){
+    this.calService.getCals(this.sessionid).subscribe(callist => {
+      //console.log(callist)
+      //console.log(callist.calendars[0].name)
+      
+      //this.id = callist.calendars[0].id,
+      this.name = callist.calendars[0].name.value
+    })
+    
   }
 
 }

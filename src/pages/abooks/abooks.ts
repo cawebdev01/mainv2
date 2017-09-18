@@ -13,12 +13,13 @@ import { AbooksService } from '../../providers/abooks-service/abooks-service';
   templateUrl: 'abooks.html',
 })
 export class AbooksPage {
-
+  public sessionid;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private abooksService : AbooksService,
   ) {
+    this.sessionid = navParams.get("sessionid");
     this.loadAbooks();
   }
   status;
@@ -27,7 +28,7 @@ export class AbooksPage {
   groups;
   abooks;
   loadAbooks(){
-    this.abooksService.getAbooks().subscribe(
+    this.abooksService.getAbooks(this.sessionid).subscribe(
       data => {
         this.status = data.status,
         this.abid = data.abid,
