@@ -1,0 +1,370 @@
+{
+"mobile": {
+	"login":"xfm.rootUrl+'/cgi-bin/mobilemail?Act_Login=1&LOGIN='+arg('login')+'&PASSWD='+arg('password')+'&SG_Lang='+arg('language')+'&Cos=1'+nocache",
+	"idlogin":"xfm.rootUrl+'/cgi-bin/mobilemail?Act_Cnf=1&Tpl=login'+nocache",
+	"authenticate":"xfm.rootUrl+'/authenticate.php'",
+	"authentipec":"xfm.rootUrl+'/authentipec.php'",
+	"logout":"xfm.rootUrl+'/cgi-bin/mobilemail?Act_Logout=1&&CleanSession=1&ID='+xfm.sessionId+nocache"
+	},
+
+"maillist": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Msgs=1&Tpl=mail_list&SpamFilter='+arg('spamFilter')+'&CONTID='+arg('contid')+'&ID='+xfm.sessionId+'&C_Folder='+arg('folder')+(arg('shortHeader')?'&SHeader=1':'')+(arg('extaccount')?'&extAccount=1':'')+nocache",
+	"load_read": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Msgs_Read_List=1&Tpl=mail_list&SpamFilter='+arg('spamFilter')+'&CONTID='+arg('contid')+'&ID='+xfm.sessionId+'&C_Folder='+arg('folder')+(arg('shortHeader')?'&SHeader=1':'')+(arg('extaccount')?'&extAccount=1':'')+nocache",
+	"load_unread": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Msgs_Unread_List=1&Tpl=mail_list&SpamFilter='+arg('spamFilter')+'&CONTID='+arg('contid')+'&ID='+xfm.sessionId+'&C_Folder='+arg('folder')+(arg('shortHeader')?'&SHeader=1':'')+(arg('extaccount')?'&extAccount=1':'')+nocache",
+	"load_flagged": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Msgs_Flagged_List=1&Tpl=mail_list&SpamFilter='+arg('spamFilter')+'&CONTID='+arg('contid')+'&ID='+xfm.sessionId+'&C_Folder='+arg('folder')+(arg('shortHeader')?'&SHeader=1':'')+(arg('extaccount')?'&extAccount=1':'')+nocache",
+	"search": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Sr_Ok=1&Fld_NB=1&SR_Folder1='+arg('folder')+'&MULTI_OP=1&SR_Crit=2&&SR_Date=0&SR_Exclude=0&SR_Status=0&SR_DCrit=&SR_Date_D=&SR_Date_M=&SR_DATE_Y=&SR_Field=FU&Tpl=mail_list&ID='+xfm.sessionId+'&CONTID='+arg('contid')+'&SR_Edit='+arg('searchcrit')+nocache",
+	"search_contact": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_ESearch_AdvSearch=1&Tpl=mail_list&ID='+xfm.sessionId+'&'+httpIdxArray('SENDERCRIT_', 'sendercrit', 1)+'&'+httpIdxArray('SENDERVAL_', 'senderval', 1)+'&'+httpIdxArray('RECIPCRIT_', 'recipcrit', 1)+'&'+httpIdxArray('RECIPVAL_', 'recipval', 1)+'&'+httpIdxArray('MSG_OR_', 'msgOr', 1)+'&MULTI_OP='+arg('multiOp')+'&CONTID='+arg('contid')+nocache",
+	"isearch": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_ISearch=1&Tpl=mail_list&ID='+xfm.sessionId+'&CRIT='+arg('searchcrit')+'&CONTID='+arg('contid')+'&Fld_NB=1&SR_Folder1='+arg('folder')+nocache",
+	"refresh": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Msgs_Refresh=1&Tpl=mail_list&ID='+xfm.sessionId+'&CONTID='+arg('contid')+'&C_Folder='+xfm.resources.inboxBase64Name+'&autoRefresh='+arg('autoRefresh')+nocache",
+	"nextpage": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Msgs_Page_Next=1&Tpl=mail_list&SpamFilter='+arg('spamFilter')+'&CONTID='+arg('contid')+'&ID='+xfm.sessionId+'&C_Folder='+arg('folder')+(arg('shortHeader')?'&SHeader=1':'')+(arg('extaccount')?'&extAccount=1':'')+nocache",
+	"prevpage": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Msgs_Page_Prev=1&Tpl=mail_list&SpamFilter='+arg('spamFilter')+'&CONTID='+arg('contid')+'&ID='+xfm.sessionId+'&C_Folder='+arg('folder')+(arg('shortHeader')?'&SHeader=1':'')+(arg('extaccount')?'&extAccount=1':'')+nocache",
+	"delete": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Msgs_Del=1&Tpl=mail_list&SpamFilter='+arg('spamFilter')+'&CONTID='+arg('contid')+'&ID='+xfm.sessionId+'&C_Folder='+arg('folder')+'&Msg_Nb='+arg('itemCount')+'&'+httpIdxArray('Msg_Sel_', 'itemId', 1)+'&'+httpIdxArray('R_Folder_', 'realFolder',1)+(arg('shortHeader')?'&SHeader=1':'')+(arg('extaccount')?'&extAccount=1':'')+nocache",
+	"delete_trash": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Msgs_Del_CF_Ok=1&Tpl=mail_list&SpamFilter='+arg('spamFilter')+'&CONTID='+arg('contid')+'&ID='+xfm.sessionId+'&C_Folder='+arg('folder')+'&Msg_Nb='+arg('itemCount')+'&'+httpIdxArray('Msg_Sel_', 'itemId', 1)+(arg('shortHeader')?'&SHeader=1':'')+(arg('extaccount')?'&extAccount=1':'')+nocache",
+	"move": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Msgs_Move=1&Tpl=mail_list&SpamFilter='+arg('spamFilter')+'&CONTID='+arg('contid')+'&ID='+xfm.sessionId+'&C_Folder='+arg('folder')+'&Msg_Nb='+arg('itemCount')+'&'+httpIdxArray('Msg_Sel_', 'itemId', 1)+'&'+httpIdxArray('R_Folder_', 'realFolder',1)+'&Fld_P_List='+arg('targetFld')+(arg('shortHeader')?'&SHeader=1':'')+(arg('extaccount')?'&extAccount=1':'')+nocache",
+	"transfer":	"xfm.rootUrl+'/cgi-bin/mobilemail?Act_MbxCopy=1&Tpl=mail_list&CONTID='+arg('contid')+'&ID='+xfm.sessionId+'&MSGNB='+arg('itemCount')+'&'+httpIdxArray('FOLDER_', 'realFolder',1)+'&'+httpIdxArray('MSGID_', 'itemId', 1)+'&TRGMBXID='+arg('targetContId')+'&TRGFOLDER='+arg('targetFld')+nocache",
+	"markasread": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Msgs_MarkRead=1&Tpl=mail_list&SpamFilter='+arg('spamFilter')+'&CONTID='+arg('contid')+'&ID='+xfm.sessionId+'&C_Folder='+arg('folder')+'&Msg_Nb='+arg('itemCount')+'&'+httpIdxArray('Msg_Sel_', 'msgids', 1)+'&'+httpIdxArray('R_Folder_', 'realFolder',1)+'&noreload='+arg('noReload')+(arg('shortHeader')?'&SHeader=1':'')+(arg('extaccount')?'&extAccount=1':'')+nocache",
+	"markasunread": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Msgs_MarkUnread=1&Tpl=mail_list&SpamFilter='+arg('spamFilter')+'&CONTID='+arg('contid')+'&ID='+xfm.sessionId+'&C_Folder='+arg('folder')+'&Msg_Nb='+arg('itemCount')+'&'+httpIdxArray('Msg_Sel_', 'msgids', 1)+'&'+httpIdxArray('R_Folder_', 'realFolder',1)+'&noreload='+arg('noReload')+(arg('shortHeader')?'&SHeader=1':'')+(arg('extaccount')?'&extAccount=1':'')+nocache",
+	"markasflagged": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Msgs_MarkFlagged=1&Tpl=status&CONTID='+arg('contid')+'&ID='+xfm.sessionId+'&C_Folder='+arg('folder')+'&Msg_Nb='+arg('itemCount')+'&'+httpIdxArray('Msg_Sel_', 'msgids', 1)+'&'+httpIdxArray('R_Folder_', 'msgfolders', 1)+'&noreload='+arg('noReload')+nocache",
+	"markasunflagged": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Msgs_MarkUnflagged=1&Tpl=status&CONTID='+arg('contid')+'&ID='+xfm.sessionId+'&C_Folder='+arg('folder')+'&Msg_Nb='+arg('itemCount')+'&'+httpIdxArray('Msg_Sel_', 'msgids', 1)+'&'+httpIdxArray('R_Folder_', 'msgfolders', 1)+'&noreload='+arg('noReload')+nocache",
+	"spam": "xfm.rootUrl+'/cgi-bin/spamtag.php?mobile=1&status='+arg('spamOrnot')+'&CONTID='+arg('contid')+'&nb_msg='+arg('itemCount')+'&'+httpIdxArray('msgid_', 'msgids')+'&'+httpIdxArray('folder_', 'folders')+'&ID='+xfm.sessionId+'&login='+xfm.resources.mailAddress+'&LogAct=Act_Spam_Tag'+nocache"
+	},
+
+"mail_foldermgt": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Folders=1&Tpl=fld_mgt&ImapReq=2&CONTID='+arg('contid')+'&ID='+xfm.sessionId+nocache",
+	"add":  "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Fl_Creat=1&Tpl=status&Fld_Important=0&CONTID=&Fld_Name='+arg('fld_name')+'&Fld_Parent='+arg('fld_parent')+'&ID='+xfm.sessionId+nocache"
+	},
+"mail_accounts": {
+	"load":"xfm.rootUrl+'/cgi-bin/mobilemail?Act_Cnf=1&Tpl=mail_accounts&CONTID='+arg('contid')+'&ID='+xfm.sessionId+nocache"
+	},
+
+"mail_view": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_View=1&ShowFullHeaders=1&KEEPMSGUNREAD=1&ID='+xfm.sessionId+'&CONTID='+arg('contid')+'&msgID='+arg('msgid')+'&C_Folder='+arg('folder')+'&R_Folder='+arg('msgfolder')+'&Body='+arg('body')+'&TNEF='+arg('tnef')+(arg('pec') ? '&GetPecBodyDesc=1' : '')+nocache",
+	"unread": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_V_MarkUnread=1&Tpl=status&ShowFullHeaders=1&ID='+xfm.sessionId+'&CONTID='+arg('contid')+'&msgID='+arg('msgid')+'&C_Folder='+arg('folder')+'&R_Folder='+arg('msgfolder')+'&Body='+arg('body')+'&TNEF='+arg('tnef')+nocache",
+	"read": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Msgs_MarkRead=1&Tpl=status&&CONTID='+arg('contid')+'&ID='+xfm.sessionId+'&C_Folder='+arg('folder')+'&Msg_Nb=1&Msg_Sel_1='+arg('msgid')+'&noreload='+arg('noReload')+(arg('shortHeader')?'&SHeader=1':'')+(arg('extaccount')?'&extAccount=1':'')+nocache",
+	"next": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_V_Next=1&ShowFullHeaders=1&ID='+xfm.sessionId+'&CONTID='+arg('contid')+'&msgID='+arg('msgid')+'&C_Folder='+arg('folder')+'&R_Folder='+arg('msgfolder')+'&Body='+arg('body')+'&TNEF='+arg('tnef')+nocache",
+	"prev": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_V_Prev=1&ShowFullHeaders=1&ID='+xfm.sessionId+'&CONTID='+arg('contid')+'&msgID='+arg('msgid')+'&C_Folder='+arg('folder')+'&R_Folder='+arg('msgfolder')+'&Body='+arg('body')+'&TNEF='+arg('tnef')+nocache",
+	"move": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_V_Move=1&Tpl=view&ID='+xfm.sessionId+'&CONTID='+arg('contid')+'&Fld_P_List='+arg('folder')+'&C_Folder='+arg('folder')+'&R_Folder='+arg('msgfolder')+'&msgID='+arg('msgid')+nocache",
+	"delete": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_V_Del=1&Tpl=view&ID='+xfm.sessionId+'&CONTID='+arg('contid')+'&C_Folder='+arg('folder')+'&R_Folder='+arg('msgfolder')+'&msgID='+arg('msgid')+'&OrigEnvId='+arg('origenvid')+'&SendMdn='+arg('sendMdn')+'&subject='+arg('subject')+'&notifTo='+arg('notifTo')+'&origDate='+arg('notifDate')+nocache",
+	"delete_trash": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_V_Del_CF_Ok=1&Tpl=view&ID='+xfm.sessionId+'&CONTID='+arg('contid')+'&C_Folder='+arg('folder')+'&R_Folder='+arg('msgfolder')+'&msgID='+arg('msgid')+'&OrigEnvId='+arg('origenvid')+'&SendMdn='+arg('sendMdn')+'&subject='+arg('subject')+'&notifTo='+arg('notifTo')+'&origDate='+arg('notifDate')+nocache",
+	"markasflagged": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_V_MarkFlagged=1&Tpl=status&CONTID='+arg('contid')+'&ID='+xfm.sessionId+'&C_Folder='+arg('folder')+'&R_Folder='+arg('msgfolder')+'&msgID='+arg('msgid')+'&noreload='+arg('noReload')+(arg('extaccount')?'&extAccount=1':'')+nocache",
+	"markasunflagged": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_V_MarkUnflagged=1&Tpl=status&CONTID='+arg('contid')+'&ID='+xfm.sessionId+'&C_Folder='+arg('folder')+'&R_Folder='+arg('msgfolder')+'&msgID='+arg('msgid')+'&noreload='+arg('noReload')+(arg('extaccount')?'&extAccount=1':'')+nocache"
+	},
+
+"compose": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Compo=1&Cos=1&ID='+xfm.sessionId+'&CONTID='+arg('contid')+nocache",
+	"send": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_C_Send=1&ID='+xfm.sessionId+'&CONTID='+arg('contid')+'&Cos=1'+nocache",
+	"save": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_C_Save=1&Tpl=compo_save_feedback&ID='+xfm.sessionId+'&CONTID='+arg('contid')+nocache",
+	"autosave": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_C_Save=2&Tpl=compo_save_feedback&ID='+xfm.sessionId+'&CONTID='+arg('contid')+nocache",
+	"reply": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_V_Reply=1&CompoState=2&ID='+xfm.sessionId+'&CONTID='+arg('contid')+'&C_Folder='+arg('folder')+'&R_Folder='+arg('msgfolder')+'&msgID='+arg('msgid')+'&Body='+arg('body')+'&msgStatus='+arg('msgStatus')+nocache",
+	"replyall": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_V_RepAll=1&CompoState=3&ID='+xfm.sessionId+'&CONTID='+arg('contid')+'&C_Folder='+arg('folder')+'&R_Folder='+arg('msgfolder')+'&msgID='+arg('msgid')+'&Body='+arg('body')+'&msgStatus='+arg('msgStatus')+nocache",
+	"forward": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_V_Fwd=1&CompoState=4&ID='+xfm.sessionId+'&CONTID='+arg('contid')+'&C_Folder='+arg('folder')+'&R_Folder='+arg('msgfolder')+'&msgID='+arg('msgid')+'&Body='+arg('body')+'&msgStatus='+arg('msgStatus')+'&TNEF='+arg('tnef')+nocache",
+	"upload": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_CBody_Add=1&Cos=1&Tpl=compo_upload&ID='+xfm.sessionId+'&CONTID='+arg('contid')+nocache"
+	},
+
+"multi_forward": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_V_Fwd=1&MultiForward=1&CompoState=4&ID='+xfm.sessionId+'&CONTID='+arg('contid')+'&C_Folder='+arg('folder')+'&Msg_Nb='+arg('msg_nb')+'&'+httpIdxArray('Msg_Sel_', 'msgSel', 1)+'&'+httpIdxArray('R_Folder_', 'realFolder', 1)+'&'+httpIdxArray('Msg_Status', 'msgStatus', 1)+ nocache"
+	},
+
+"change_password": {
+	"save": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Passwd_Ok=1&Tpl=passwd&SG_OldPasswd='+arg('oldpassword')+'&SG_Passwd='+arg('npassword1')+'&SG_PasswdBis='+arg('npassword2')+'&ID='+xfm.sessionId+nocache",
+	"save_qmail": "xfm.rootUrl+'/cgi-bin/qmailadmin/passwd/?address='+encodeURIComponent(xfm.resources.mailAddress)+'&oldpass='+arg('oldpassword')+'&newpass1='+arg('npassword1')+'&newpass2='+arg('npassword2')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_ChangePassword'+nocache",
+	"verif_strength": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Passwd_Check=1&Tpl=passwd_strength&ID='+xfm.sessionId+nocache"
+},
+
+"abooklist": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_OL_TB=1&tpl=abook_list&ID='+xfm.sessionId+'&allowAccessMode='+arg('allowAccessMode')+nocache"
+	},
+
+"contactlist": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_CL_TB=1&FVAL=4&SENS=0&ONLYCT=1&ABID='+arg('abook')+'&tpl=contact_list&ID='+xfm.sessionId+'&allowAccessMode='+arg('allowAccessMode')+nocache",
+	"light_load": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_CL_TB=1&FVAL=4&SENS=0&ONLYCT=1&ABID='+arg('abook')+'&tpl=contact_list_light&ID='+xfm.sessionId+'&allowAccessMode='+arg('allowAccessMode')+nocache",
+	"search": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_ISEARCH=1&ABID='+arg('abook')+'&ONLYCT=1&CRIT='+arg('crit')+'&tpl=contact_list_search&ID='+xfm.sessionId+nocache",
+	"autocomplete": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_CL_TB=1&FVAL=4&SENS=0&ONLYCT=1&ABID='+arg('abook')+'&AutoCompletion=1&tpl=autocomplete&ID='+xfm.sessionId+'&allowAccessMode='+arg('allowAccessMode')+nocache",
+	"alphafilter": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_CL_AFILT=1&tpl=contact_list_light&ID='+xfm.sessionId+'&AFLD='+xfm.resources.alphabetFiltering+'&AVAL='+arg('index')+nocache",
+	"delete": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_OL_DEL_OK=1&ABID='+arg('abook')+'&tpl=contact_list&ID='+xfm.sessionId+'&'+httpABIdxArray('itemData', 'itemId')+nocache",
+	"nextpage": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_CL_NEXT=1&tpl=contact_list_light&ID='+xfm.sessionId+'&ABID='+arg('abook')+nocache",
+	"prevpage": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_CL_PREV=1&tpl=contact_list_light&ID='+xfm.sessionId+'&ABID='+arg('abook')+nocache",
+	"groupalphafilter": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_CL_GAFILT=1&FVAL=105&tpl=contact_list_light&ID='+xfm.sessionId+'&AFLD='+arg('fieldId')+'&AVAL='+arg('index')+'&GID='+arg('groupId')+nocache"
+	},
+
+"contact_edit": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_CT_LEDIT=1&tpl=contact_edit&CUID='+arg('cid')+'&Ctx='+arg('ctx')+(arg('fields')?'&fields=1':'')+'&ABID='+arg('abook')+'&ID='+xfm.sessionId+nocache",
+	"delete": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_OL_DEL_OK=1&ABID='+arg('abook')+'&tpl=contact_list&ID='+xfm.sessionId+'&'+httpABIdxArray('itemData', 'cid')+nocache",
+	"save": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_CT_LOK=1&AJAXMODE=1&tpl=contact_edit&SHOWUPDATE=1&ID='+xfm.sessionId+nocache",
+	"qrcode": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_CT_QRCODE=1&CUID='+arg('cid')+'&ABID='+arg('abook')+'&qrcode_size='+arg('size')+'&qrcode_format='+arg('format')+'&ID='+xfm.sessionId+nocache",
+	"markasflagged": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_CT_SETFLAGS=1&tpl=status&CID='+arg('cid')+'&FLAGS=1&SHOWUPDATE=1&AJAXMODE=1&ID='+xfm.sessionId+nocache",
+	"markasunflagged": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_CT_SETFLAGS=1&tpl=status&CID='+arg('cid')+'&FLAGS=2&SHOWUPDATE=1&AJAXMODE=1&ID='+xfm.sessionId+nocache"
+	},
+
+"contact_add": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_CT_LADD=1&Ctx='+arg('ctx')+(arg('fields')?'&fields=1':'')+(arg('abid')?('&abid='+arg('abid')):'')+'&tpl=contact_edit&ID='+xfm.sessionId+nocache"
+	},
+
+"group_preview": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_GL_EDIT=1&tpl=group_preview&GID='+arg('cid')+'&ABID='+arg('abook')+'&ID='+xfm.sessionId+nocache"
+	},
+
+"calendar": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilecal?ActSearch=1&FromWebmail=1&tpl=eventlist&start_year_list='+arg('sYear')+'&start_month_list='+arg('sMonth')+'&start_day_list='+arg('sDay')+'&end_year_list='+arg('eYear')+'&end_month_list='+arg('eMonth')+'&end_day_list='+arg('eDay')+'&FullReload='+arg('full')+'&istitles=1&search_string=&search_class=1&ID='+xfm.sessionId+nocache",
+	"calendarlist": "xfm.rootUrl+'/cgi-bin/mobilecal?ActSearch=1&FromWebmail=1&tpl=calendarlist&ID='+xfm.sessionId+nocache",
+	"add": "xfm.rootUrl+'/cgi-bin/mobilecal?ActEventAdd=1&FromWebmail=1&tpl=eventadd&form=0&type=1&title='+arg('title')+'&categories='+arg('eventType')+'&location='+arg('locat')+'&description='+arg('desc')+(arg('isRemind')?('&is_reminder=1&reminder_email='+arg('remindMail')):'&is_reminder=0')+(arg('isRemindSms')?('&is_reminder_mobile=1&reminder_msisdn='+arg('remindSms')):'&is_reminder_mobile=0')+'&reminder_time='+arg('remindTime')+'&reminder_note='+arg('remindNote')+'&class='+arg('eventClass')+'&start_day='+arg('sDate')+'&start_month='+arg('sMonth')+'&start_year='+arg('sYear')+ (arg('allDay')?'&all_day=1':'&all_day=0'+'&start_hour='+arg('sHour')+'&start_minute='+arg('sMin'))+ (arg('mAllDay') ? ('&end_day='+arg('eDate')+'&end_month='+arg('eMonth')+'&end_year='+arg('eYear')):('&end_day='+arg('eDate')+'&end_month='+arg('eMonth')+'&end_year='+arg('eYear')+'&end_hour='+arg('eHour')+'&end_minute='+arg('eMin'))) +'&organizerName='+arg('organizer_name')+'&add_attendee='+arg('guestTo')+'&from='+xfm.resources.mailAddress+'&invitations_subject='+arg('invitSubject')+(arg('repeat')?('&is_rep=1&rep_period='+arg('repPeriod')+'&rep_frequency='+arg('repFreq')+(arg('repAlways')?'&rep_always=1':('&rep_always=0&rep_end_year_list='+arg('repYear')+'&rep_end_month_list='+arg('repMonth')+'&rep_end_day_list='+arg('repDay')))+(arg('repDSun')?'&sunday_box=1':'&sunday_box=0')+(arg('repDMon')?'&monday_box=1':'&monday_box=0')+(arg('repDTue')?'&tuesday_box=1':'&tuesday_box=0')+(arg('repDWed')?'&wednesday_box=1':'&wednesday_box=0')+(arg('repDThu')?'&thursday_box=1':'&thursday_box=0')+(arg('repDFri')?'&friday_box=1':'&friday_box=0')+(arg('repDSat')?'&saturday_box=1':'&saturday_box=0')):'&is_rep=0')+'&CalName='+arg('calId')+'&no_invitation_confirm=1&ID='+xfm.sessionId+nocache",
+	"del": "xfm.rootUrl+'/cgi-bin/mobilecal?ActEventDelete=1&FromWebmail=1&tpl=eventdel&uid='+arg('uid')+'&CalName='+arg('calId')+'&ID='+xfm.sessionId+nocache",
+	"delRep": "xfm.rootUrl+'/cgi-bin/mobilecal?ActEventDelete=1'+'&CalName='+arg('calId')+'&update_mode='+arg('update_mode')+'&update_date='+arg('today')+'&recurrence_date='+arg('recurrenceDate')+'&recurrence_type='+arg('recurrenceType')+'&search_date='+arg('today')+'&FromWebmail=1&tpl=eventdel&uid='+arg('uid')+'&ID='+xfm.sessionId+nocache",
+	"upd": "xfm.rootUrl+'/cgi-bin/mobilecal?ActEventUpdate=1'+'&update_mode='+arg('update_mode')+'&update_date='+arg('today')+'&recurrence_date='+arg('recurrenceDate')+'&recurrence_type='+arg('recurrenceType')+'&FromWebmail=1&tpl=eventupd&uid='+arg('uid')+'&title='+arg('title')+'&type=1&categories='+arg('eventType')+'&location='+arg('locat')+'&description='+arg('desc')+(arg('isRemind')?('&is_reminder=1&reminder_email='+arg('remindMail')):'&is_reminder=0')+(arg('isRemindSms')?('&is_reminder_mobile=1&reminder_msisdn='+arg('remindSms')):'&is_reminder_mobile=0')+'&reminder_time='+arg('remindTime')+'&reminder_note='+arg('remindNote')+'&class='+arg('eventClass')+'&start_day='+arg('sDate')+'&start_month='+arg('sMonth')+'&start_year='+arg('sYear')+ (arg('mAllDay')?('&all_day=1'+'&start_hour='+arg('sHour')+'&start_minute='+arg('sMin')+'&end_day='+arg('eDate')+'&end_month='+arg('eMonth')+'&end_year='+arg('eYear')+'&end_hour='+arg('eHour')+'&end_minute='+arg('eMin')):(arg('allDay')?'&all_day=1':'&all_day=0')+'&start_hour='+arg('sHour')+'&start_minute='+arg('sMin')+'&end_day='+arg('eDate')+'&end_month='+arg('eMonth')+'&end_year='+arg('eYear')+'&end_hour='+arg('eHour')+'&end_minute='+arg('eMin')) +'&organizerName='+arg('organizer_name')+'&add_attendee='+arg('guestTo')+'&from='+xfm.resources.mailAddress+'&invitations_subject='+arg('invitSubject')+(arg('repeat')?('&is_rep=1&rep_period='+arg('repPeriod')+'&rep_frequency='+arg('repFreq')+(arg('repAlways')?'&rep_always=1':('&rep_always=0&rep_end_year_list='+arg('repYear')+'&rep_end_month_list='+arg('repMonth')+'&rep_end_day_list='+arg('repDay')))+(arg('repDSun')?'&sunday_box=1':'&sunday_box=0')+(arg('repDMon')?'&monday_box=1':'&monday_box=0')+(arg('repDTue')?'&tuesday_box=1':'&tuesday_box=0')+(arg('repDWed')?'&wednesday_box=1':'&wednesday_box=0')+(arg('repDThu')?'&thursday_box=1':'&thursday_box=0')+(arg('repDFri')?'&friday_box=1':'&friday_box=0')+(arg('repDSat')?'&saturday_box=1':'&saturday_box=0')):'&is_rep=0')+'&CalName='+arg('calId')+'&OldCalName='+arg('oldCalId')+'&no_invitation_confirm=1&ID='+xfm.sessionId+'&'+httpIdxArray('status', 'status', 1)+'&'+httpIdxArray('name', 'name', 1)+'&'+httpIdxArray('email', 'email', 1)+'&'+httpIdxArray('rsvp', 'rsvp', 1)+nocache",
+	"updRep": "xfm.rootUrl+'/cgi-bin/mobilecal?ActEventUpdate=1'+'&update_mode='+arg('update_mode')+'&update_date='+arg('today')+'&recurrence_date='+arg('recurrenceDate')+'&recurrence_type='+arg('recurrenceType')+'&FromWebmail=1&tpl=eventupd&uid='+arg('uid')+'&title='+arg('title')+'&type=1&categories='+arg('eventType')+'&location='+arg('locat')+'&description='+arg('desc')+(arg('isRemind')?('&is_reminder=1&reminder_email='+arg('remindMail')):'&is_reminder=0')+(arg('isRemindSms')?('&is_reminder_mobile=1&reminder_msisdn='+arg('remindSms')):'&is_reminder_mobile=0')+'&reminder_time='+arg('remindTime')+'&reminder_note='+arg('remindNote')+'&class='+arg('eventClass')+'&start_day='+arg('sDate')+'&start_month='+arg('sMonth')+'&start_year='+arg('sYear')+(arg('allDay')?'&all_day=1':('&start_hour='+arg('sHour')+'&start_minute='+arg('sMin')+'&end_day='+arg('eDate')+'&end_month='+arg('eMonth')+'&end_year='+arg('eYear')+'&end_hour='+arg('eHour')+'&end_minute='+arg('eMin')))+'&organizerName='+arg('organizer_name')+'&add_attendee='+arg('guestTo')+'&from='+xfm.resources.mailAddress+'&invitations_subject='+arg('invitSubject')+(arg('repeat')?('&is_rep=1&rep_period='+arg('repPeriod')+'&rep_frequency='+arg('repFreq')+(arg('repAlways')?'&rep_always=1':('&rep_always=0&rep_end_year_list='+arg('repYear')+'&rep_end_month_list='+arg('repMonth')+'&rep_end_day_list='+arg('repDay')))+(arg('repDSun')?'&sunday_box=1':'&sunday_box=0')+(arg('repDMon')?'&monday_box=1':'&monday_box=0')+(arg('repDTue')?'&tuesday_box=1':'&tuesday_box=0')+(arg('repDWed')?'&wednesday_box=1':'&wednesday_box=0')+(arg('repDThu')?'&thursday_box=1':'&thursday_box=0')+(arg('repDFri')?'&friday_box=1':'&friday_box=0')+(arg('repDSat')?'&saturday_box=1':'&saturday_box=0')+(arg('exDates')?('&'+httpIdxArray('exception_date','exDates',1)):'')):'&is_rep=0')+'&CalName='+arg('calId')+'&OldCalName='+arg('oldCalId')+'&no_invitation_confirm=1&ID='+xfm.sessionId+'&'+httpIdxArray('status', 'status', 1)+'&'+httpIdxArray('name', 'name', 1)+'&'+httpIdxArray('email', 'email', 1)+'&'+httpIdxArray('rsvp', 'rsvp', 1)+nocache",
+	"grid": "xfm.rootUrl+'/cgi-bin/mobilecal?ActSearch=1&FromWebmail=1&tpl=eventlistgrid&start_year_list='+arg('sYear')+'&start_month_list='+arg('sMonth')+'&start_day_list='+arg('sDay')+'&end_year_list='+arg('eYear')+'&end_month_list='+arg('eMonth')+'&end_day_list='+arg('eDay')+'&FullReload='+arg('full')+'&istitles=1&search_string=&search_class=1&ID='+xfm.sessionId+nocache",
+	"getEvent": "xfm.rootUrl+'/cgi-bin/mobilecal?ActEventEdit=1&FromWebmail=1&tpl=eventupd&ShareInId='+arg('shareInId')+'&CalName='+arg('calId')+'&uid='+arg('uid')+'&ID='+xfm.sessionId+nocache",
+	"update_display_mode": "xfm.rootUrl+'/cgi-bin/mobilecal?ActUserCalDisplayMode=1&FromWebmail&CalName='+arg('id')+'&UserCalDisplayMode='+arg('displayMode')+'&tpl=calendarlist&ID='+xfm.sessionId+nocache",
+	"update_shared_display_mode": "xfm.rootUrl+'/cgi-bin/mobilecal?ActShareInItemDisplayMode=1&FromWebmail&ShareInId='+arg('id')+'&ShareInDisplayMode='+arg('displayMode')+'&tpl=calendarlist&ID='+xfm.sessionId+nocache",
+	"update_net_display_mode": "xfm.rootUrl+'/cgi-bin/mobilecal?ActNetCalDisplayMode=1&FromWebmail&CalName='+arg('id')+'&NetCalDisplayMode='+arg('displayMode')+'&IsNet=1&tpl=calendarlist&ID='+xfm.sessionId+nocache",
+	"search": "xfm.rootUrl+'/cgi-bin/mobilecal?ActSearch=1&FromWebmail=1&tpl=eventlist&istitles=1&islocations=1&isnextoccur=1&use_pages=1&sort_field='+arg('sortfield')+'&usecalname='+arg('useCalName')+'&CalName='+arg('calId')+'&search_string='+arg('searchcrit')+'&start_year_list='+arg('start_year_list')+'&start_month_list='+arg('start_month_list')+'&start_day_list='+arg('start_day_list')+'&end_year_list='+arg('end_year_list')+'&end_month_list='+arg('end_month_list')+'&end_day_list='+arg('end_day_list')+'&ID='+xfm.sessionId+nocache"
+	},
+
+"calendar_publish": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilecal?ActCalGetInfoList=1&FromWebmail=1&tpl=calinfo_list&ID='+xfm.sessionId+'&TabId='+arg('tabId')+nocache",
+	"save": "xfm.rootUrl+'/cgi-bin/mobilecal?ActCalSaveAccessList=1&FromWebmail=1&tpl=calinfo_list&ID='+xfm.sessionId+'&CalNb='+arg('calNb')+'&'+httpIdxArray('CalName', 'calName', 1)+'&'+httpIdxArray('EnableDav', 'enableDav', 1)+'&'+httpIdxArray('EnableIcs', 'enableIcs', 1)+'&TabId='+arg('tabId')+nocache"
+},
+
+"agenda_info": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilecal?ActCalInfo=1&FromWebmail=1&tpl=agenda&start_year_list='+arg('today','sYear')+'&start_month_list='+arg('today','sMonth')+'&start_day_list='+arg('today','sDay')+'&end_year_list='+arg('endday','eYear')+'&end_month_list='+arg('endday','eMonth')+'&end_day_list='+arg('endday','eDay')+'&istitles=1&search_string=&search_class=1&ID='+xfm.sessionId+nocache"
+	},
+"file_folder": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilefile?ACT_FIL_EXPSEL=1&EXPANDALL=1&tpl=fld_list&ID='+xfm.sessionId+nocache",
+	"del": "xfm.rootUrl+'/cgi-bin/mobilefile?ACT_FIL_DEL=1&NONAVIG=1&tpl=fld_upd&ID='+xfm.sessionId+nocache+'&DELID='+arg('fld_id')"
+	},
+
+"file_props": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilefile?ACT_FIL_CURFILO=1&tpl=filo_act_edit&ID='+xfm.sessionId+'&CURRENTUID='+arg('folder')+'&FUID='+arg('fuid')+'&SHRUID='+arg('shareObjectId')+nocache"
+	},
+
+"file_list": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilefile?ACT_FIL_EXPSEL=1&tpl=file_list&ID='+xfm.sessionId+'&CURRENTUID='+arg('folder')+'&FUID='+arg('zipObjectId')+'&EXPZIP='+arg('exploreZip')+'&EPLCSET='+arg('exploreCharset')+'&SHRUID='+arg('shareObjectId')+'&SHOW_MODE='+arg('showMode')+nocache",
+	"nextpage": "xfm.rootUrl+'/cgi-bin/mobilefile?ACT_FIL_NEXT=1&tpl=file_list&ID='+xfm.sessionId+'&CURRENTUID='+arg('folder')+'&FUID='+arg('zipObjectId')+'&EXPZIP='+arg('exploreZip')+'&EPLCSET='+arg('exploreCharset')+'&SHRUID='+arg('shareObjectId')+nocache",
+	"prevpage": "xfm.rootUrl+'/cgi-bin/mobilefile?ACT_FIL_PREVIOUS=1&tpl=file_list&ID='+xfm.sessionId+'&CURRENTUID='+arg('folder')+'&FUID='+arg('zipObjectId')+'&EXPZIP='+arg('exploreZip')+'&EPLCSET='+arg('exploreCharset')+'&SHRUID='+arg('shareObjectId')+nocache",
+	"delete": "xfm.rootUrl+'/cgi-bin/mobilefile?ACT_FIL_DEL=1&Tpl=file_list&ID='+xfm.sessionId+'&CURRENTUID='+arg('folder')+'&'+httpArray('DELID', 'itemId', 1)+'&SHRUID='+arg('shareObjectId')+nocache",
+	"multiupload": "xfm.rootUrl+'/cgi-bin/mobilefile?ACT_FIL_UPLOAD=1&tpl=file_multiupload&ID='+xfm.sessionId+'&FUID='+arg('folder')+'&SHRUID='+arg('shareObjectId')+nocache",
+	"download": "xfm.rootUrl+'/cgi-bin/mobilefile/'+arg('filename')+'?ACT_FIL_DL=1&FORCEDL=1&ID='+xfm.sessionId+'&FUID='+arg('fileid')+'&TNOTE='+arg('noteid')+'&EXPZIP='+arg('exploreZip')+'&SHRUID='+arg('shareObjectId')+nocache",
+	"download_zip": "xfm.rootUrl+'/cgi-bin/mobilefile?ACT_FIL_MDL=1&FORCEDL=1&ZIPFILE=archive.zip&ID='+xfm.sessionId+'&DLCSET='+arg('charset')+'&CURRENTUID='+arg('folder')+'&'+httpArray('FID', 'itemId', 1)+'&SHRUID='+arg('shareObjectId')+nocache"
+	},
+"add_file":{
+	"load": "xfm.rootUrl+'/cgi-bin/mobilemail?a=Act_MobileSaveFile&ID='+xfm.sessionId+'&Body='+arg('body')+'&msgID='+arg('msgid')+'&R_Folder='+arg('folder')+'&C_Folder='+arg('folder')+'&TNEF='+arg('tnef')+'&CURRENTUID='+arg('fuid')+'&CONTID='+arg('msgcontid')+nocache",
+	"save_attach": "xfm.rootUrl+'/cgi-bin/mobilefile?ACT_FIL_STOREFILE=1&HttpOvFname='+arg('fname')+'&Http_fdescr='+arg('fdesc')+'&CONTID='+arg('contid')+'&CURRENTUID='+arg('fuid')+'&HTTP_PHYSNAME='+arg('phname')+'&FromWebmail=1&tpl=after_store&ID='+xfm.sessionId+nocache"
+	},
+"dropbox": {
+	"authenticate":"'https://api.dropbox.com/1/oauth2/token'",
+	"setkey": "xfm.rootUrl+'/cgi-bin/mobilefile?ACT_DROPBOX_SETKEY=1&tpl=status&ID='+xfm.sessionId+'&DBXKEY='+arg('key')+nocache",
+	"delkey": "xfm.rootUrl+'/cgi-bin/mobilefile?ACT_DROPBOX_DELKEY=1&tpl=status&ID='+xfm.sessionId+nocache",
+	"upload": "xfm.rootUrl+'/cgi-bin/mobilefile?ACT_DROPBOX_UPLOADFILE=1&folder='+arg('folder')+'&tpl=status&ID='+xfm.sessionId+nocache",
+	"addfile": "xfm.rootUrl+'/cgi-bin/mobilemail?a=Act_MobileDropboxSaveFile&CONTID='+arg('contid')+'&R_Folder='+arg('msgfolder')+'&msgID='+arg('msgid')+'&Body='+arg('body')+'&folder='+arg('folder')+'&filename='+arg('filename')+'&ID='+xfm.sessionId+nocache"
+},
+"tasklist_list" : {
+	"load": "xfm.rootUrl+'/cgi-bin/mobiletasks?ACT_TASKLIST_LIST=1&tpl=tasklist_list&ID='+xfm.sessionId+nocache"
+},
+"tasklist" : {
+	"load": "xfm.rootUrl+'/cgi-bin/mobiletasks?ACT_TASK_LIST=1&SORT='+arg('todoSort')+'&TLUID='+arg('tasklistid')+'&allowAccessMode='+arg('allowAccessMode')+'&tpl=tasklist_content&ID='+xfm.sessionId+nocache",
+	"edit": "xfm.rootUrl+'/cgi-bin/mobiletasks?ACT_TASKLIST=1&tpl=tasklist_edit&ID='+xfm.sessionId+'&TLUID='+arg('id')+nocache",
+	"add": "xfm.rootUrl+'/cgi-bin/mobiletasks?ACT_TASKLIST_SET=1&tpl=tasklist_edit&ID='+xfm.sessionId+'&NAME='+arg('name')+'&COMMENT='+arg('comment')+'&ATOMICREQ=1'+nocache",
+	"update" : "xfm.rootUrl+'/cgi-bin/mobiletasks?ACT_TASKLIST_SET=1&tpl=tasklist_edit&ID='+xfm.sessionId+'&TLUID='+arg('id')+'&ATOMICREQ=1'+'&NAME='+arg('name')+'&COMMENT='+arg('comment')+nocache",
+	"delete" : "xfm.rootUrl+'/cgi-bin/mobiletasks?ACT_TASKLIST_DEL=1&tpl=tasklist_delete&ID='+xfm.sessionId+'&TLUID='+arg('id')+'&ATOMICREQ=1'+nocache",
+	"copy": "xfm.rootUrl+'/cgi-bin/mobiletasks?ACT_TASK_COPY=1&TLUID='+arg('source')+'&TARGET='+arg('target')+'&tpl=tasklist_content&ID='+xfm.sessionId+'&'+httpArray('TUID', 'itemId')+nocache",
+	"move": "xfm.rootUrl+'/cgi-bin/mobiletasks?ACT_TASK_MOVE=1&TLUID='+arg('source')+'&TARGET='+arg('target')+'&tpl=tasklist_content&ID='+xfm.sessionId+'&'+httpArray('TUID', 'itemId')+nocache"
+},
+"task" : {
+	"load": "xfm.rootUrl+'/cgi-bin/mobiletasks?ACT_TASK=1&tpl=taskedit&TGADGET='+arg('gadget')+'&TUID='+arg('uid')+'&TLUID='+arg('tasklistid')+'&tabId='+arg('tabId')+'&ID='+xfm.sessionId+nocache",
+	"delete": "xfm.rootUrl+'/cgi-bin/mobiletasks?ACT_TASK_DEL=1&&tpl=tasklist_content&'+httpArray('TUID', 'uid')+'&TLUID='+arg('tasklistid')+'&ID='+xfm.sessionId+nocache",
+	"add": "xfm.rootUrl+'/cgi-bin/mobiletasks?ACT_TASK_SET=1&tpl=taskedit&ID='+xfm.sessionId+nocache",
+	"edit": "xfm.rootUrl+'/cgi-bin/mobiletasks?ACT_TASK_SET=1&tpl=taskedit&ID='+xfm.sessionId+nocache",
+	"save": "xfm.rootUrl+'/cgi-bin/mobiletasks?ACT_TASK_SET=1&tpl=taskedit&ID='+xfm.sessionId+nocache",
+	"info": "xfm.rootUrl+'/cgi-bin/mobiletasks?ACT_TASK_SEARCH=1&tpl=taskinfo&SYEAR='+arg('today','sYear')+'&SMON='+arg('today','sMonth')+'&SDAY='+arg('today','sDay')+'&EYEAR='+arg('endday','eYear')+'&EMON='+arg('endday','eMonth')+'&EDAY='+arg('endday','eDay')+'&ID='+xfm.sessionId+nocache",
+
+	"list_all": "xfm.rootUrl+'/cgi-bin/mobiletasks?ACT_TASK_SEARCH_ALL=1&RDL=1&tpl=taskinfogadget&SORT='+arg('todoSort')+'&SYEAR='+arg('today','sYear')+'&SMON='+arg('today','sMonth')+'&SDAY='+arg('today','sDay')+'&EYEAR='+arg('endday','eYear')+'&EMON='+arg('endday','eMonth')+'&EDAY='+arg('endday','eDay')+'&ID='+xfm.sessionId+nocache",
+	"changestatus": "xfm.rootUrl+'/cgi-bin/mobiletasks?ACT_TASK_SET=1&DIRECT=1&tpl=taskedit&TGADGET='+arg('gadget')+'&TUID='+arg('taskId')+'&TLUID='+arg('tasklistId')+'&STATUS='+arg('taskStatus')+'&PERCENT='+arg('percent')+'&NAME='+arg('title')+'&PRIORITY='+arg('priority')+'&TSHOWID='+arg('gadgetShowId')+'&ID='+xfm.sessionId+nocache",
+	"loadTaskFromDate": "xfm.rootUrl+'/cgi-bin/mobiletasks?ACT_TASK=1&tpl=taskedit&uid='+arg('uid')+'&tabId='+arg('tabId')+'&sDate='+arg('sDate')+'&SDAY='+arg('sDate')+'&SMON='+arg('sMonth')+'&SYEAR='+arg('sYear')+'&ID='+xfm.sessionId+nocache"
+	},
+"tasks_info": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobiletasks?ACT_TASK_SEARCH_ALL=1&RDL=1&tpl=taskinfo&SORT='+arg('todoSort')+'&SYEAR='+arg('today','sYear')+'&SMON='+arg('today','sMonth')+'&SDAY='+arg('today','sDay')+'&EYEAR='+arg('endday','eYear')+'&EMON='+arg('endday','eMonth')+'&EDAY='+arg('endday','eDay')+'&ID='+xfm.sessionId+nocache"
+},
+"forward_reply_settings": {
+	"load": "xfm.rootUrl+'/../bouchons/autofwd.php?LogAct=Act_Qadm_AutoFwd_Load&ID='+xfm.sessionId+'&validjson=1&email='+escape(xfm.resources.mailAddress)+nocache",
+	"save": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/modusernow?LogAct=Act_Qadm_AutoFwd_Save&ID='+xfm.sessionId+'&vacation='+arg('vacation')+'&vmessage='+arg('vmessage')+'&fsaved='+arg('fsaved')+'&nforward='+arg('nforward')+'&cforward='+arg('cforward')+'&autorespondnumber='+arg('autorespondnumber')+'&autorespondtime='+arg('autorespondtime')+'&autorespondtimetomm='+arg('autorespondtimetomm')+'&autorespondtimetogg='+arg('autorespondtimetogg')+'&autorespondtimetoaaaa='+arg('autorespondtimetoaaaa')+'&nformat='+arg('nformat')+'&nemail='+arg('nemail')+'&ncheck='+arg('ncheck')+'&spamcheck='+arg('spamcheck')+'&email='+escape(xfm.resources.mailAddress)+nocache"
+	},
+"webstorage": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilefile?ACT_FIL_GOPAGE=1&GOPAGE=1&EXPANDALL=1&tpl=quota&SID=3&SENS=1&ID='+xfm.sessionId+'&SHOW_MODE='+arg('showMode')+nocache"
+	},
+"signatures": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Sig=1&ID='+xfm.sessionId+nocache",
+	"default": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Sig_Def=1&Sig_Sel='+arg('sigid')+'&ID='+xfm.sessionId+nocache"
+	},
+"bwlist": {
+	"load": "xfm.rootUrl+'/antispam/ml.php?act=bl_list&ID='+xfm.sessionId+'&email='+escape(xfm.resources.mailAddress)+'&remail='+arg('remail')+'&LogAct=Act_Qadm_BlackList_List'+nocache",
+	"add": "xfm.rootUrl+'/antispam/ml.php?act=bl_add&ID='+xfm.sessionId+'&BL_Edit='+arg('BL_Edit')+'&remail='+arg('remail')+'&email='+escape(xfm.resources.mailAddress)+'&LogAct=Act_Qadm_BlackList_Add'+nocache",
+	"remove": "xfm.rootUrl+'/antispam/ml.php?act=bl_del&ID='+xfm.sessionId+'&BL_List='+arg('BL_List')+'&remail='+arg('remail')+'&email='+escape(xfm.resources.mailAddress)+'&LogAct=Act_Qadm_BlackList_Del'+nocache",
+	"save": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Bl_Ok=1&ltype='+arg('ltype')+'&ID='+xfm.sessionId+nocache",
+	"upload": "xfm.rootUrl+'/antispam/ml.php?act=bl_import&ID='+xfm.sessionId+'&email='+escape(xfm.resources.mailAddress)+'&remail='+arg('remail')+'&LogAct=Act_Qadm_BlackList_List'+nocache"
+	},
+"antispam": {
+	"load": "xfm.rootUrl+'/antispam/index.php?email='+encodeURIComponent(xfm.resources.mailAddress)+'&remail='+arg('remail')+'&ID='+xfm.sessionId+'&LogAct=Act_AntiSpam_Load'+nocache",
+	"loadall": "xfm.rootUrl+'/antispam/ml.php?act=get_antispam&email='+escape(xfm.resources.mailAddress)+'&account='+arg('account')+'&ID='+xfm.sessionId+'&LogAct=Act_AntiSpam_Add'+nocache",
+	"load_pec": "xfm.rootUrl+'/cgi-bin/peccheckas.php?email='+encodeURIComponent(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+nocache",
+	"savepref": "xfm.rootUrl+'/antispam/index.php?prefs=1&email='+encodeURIComponent(xfm.resources.mailAddress)+'&remail='+arg('remail')+'&s_control='+arg('s_control')+'&h_control='+arg('h_control')+'&report_safe_control='+arg('report_safe_control')+'&terse_control='+arg('terse_control')+'&subject_tag_control='+arg('subject_tag_control')+'&always_control='+arg('always_control')+'&fold_control='+arg('fold_control')+'&stars_control='+arg('stars_control')+'&star_char_control='+arg('star_char_control')+'&ok_lang_control='+arg('ok_lang_control')+'&blacklist_control='+arg('blacklist_control')+'&grey_control='+arg('grey_checked')+'&ID='+xfm.sessionId+'&LogAct=Act_AntiSpam_Save'+nocache",
+	"addrule": "xfm.rootUrl+'/antispam/index.php?prefs=0&add=1&email='+encodeURIComponent(xfm.resources.mailAddress)+'&remail='+arg('remail')+'&val='+arg('val')+'&key='+arg('key')+'&ID='+xfm.sessionId+'&LogAct=Act_AntiSpam_Add'+nocache",
+	"delrule": "xfm.rootUrl+'/antispam/index.php?delete='+arg('line_num')+'&email='+encodeURIComponent(xfm.resources.mailAddress)+'&remail='+arg('remail')+'&preference='+arg('preference')+'&value='+arg('value')+'&ID='+xfm.sessionId+'&LogAct=Act_AntiSpam_Del'+nocache",
+	"removeaccount": "xfm.rootUrl+'/antispam/index.php?removeaccount='+arg('account')+'&email='+encodeURIComponent(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&LogAct=Act_AntiSpam_Remove'+nocache",
+	"load_report": "xfm.rootUrl+'/antispam/ml.php?act=get_as_report&email='+escape(xfm.resources.mailAddress)+'&remail='+arg('remail')+'&ID='+xfm.sessionId+'&LogAct=Act_AntiSpam_LoadReport'+nocache",
+	"save_report": "xfm.rootUrl+'/antispam/ml.php?act=set_as_report&email='+escape(xfm.resources.mailAddress)+'&remail='+arg('remail')+'&enable='+arg('enable')+'&freq='+arg('freq')+'&lang='+arg('lang')+'&ID='+xfm.sessionId+'&LogAct=Act_AntiSpam_SaveReport'+nocache"
+	},
+"extaccounts": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Extern=1&Cos=1&ID='+xfm.sessionId+nocache",
+	"save": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Ext_Save=1&Ext_Idx='+arg('idx')+'&Tpl=ext&ID='+xfm.sessionId+nocache",
+	"delete": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Ext_Del=1&Tpl=ext&Ext_Idx='+arg('idx')+'&ID='+xfm.sessionId+nocache",
+	"toggle": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Ext_EOk=1&Ext_Idx='+arg('idx')+'&Ext_State'+arg('fieldId')+'=1&ID='+xfm.sessionId+nocache",
+	"validate": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Extern_Validate=1&Tpl=ext&step=3&ID='+xfm.sessionId+nocache",
+	"detect": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Extern_Detect=1&Tpl=ext&step=2&ID='+xfm.sessionId+nocache"
+	},
+"mailboxes": {
+	"load": "xfm.rootUrl+'/antispam/ml.php?act=im_list_domain&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('page')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"list_catch": "xfm.rootUrl+'/antispam/ml.php?act=catch_list&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"getdomainstatus": "xfm.rootUrl+'/antispam/ml.php?act=im_list_domain&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('page')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"nextpage": "xfm.rootUrl+'/antispam/ml.php?act=im_list_domain&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"prevpage": "xfm.rootUrl+'/antispam/ml.php?act=im_list_domain&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"changepage": "xfm.rootUrl+'/antispam/ml.php?act=im_list_domain&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"alphafilter": "xfm.rootUrl+'/antispam/ml.php?act=im_list_domain&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"export": "xfm.rootUrl+'/antispam/ml.php/accounts_'+arg('domain')+'.csv?act=export_domain&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_Export_Domain'+nocache",
+	"delete": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/multidelusernow?email='+escape(xfm.resources.mailAddress)+'&'+httpMailboxArray('itemData')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_Account_MutipleDelUser'+nocache",
+	"deluser": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/delusernow?email='+escape(xfm.resources.mailAddress)+'&deluser='+arg('account')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_Account_DelUser'+nocache",
+	"delete_im": "xfm.rootUrl+'/services/immgmt.php?act=SetImStatus&email='+escape(xfm.resources.mailAddress)+'&state=disable&account='+arg('to_delete')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_Account_MutipleDelIm'+nocache",
+	"edit": "xfm.rootUrl+'/antispam/ml.php?act=im_edit_user&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&account='+arg('account')+'&LogAct=Act_Qadm_EditUser'+nocache",
+	"updateffn": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/modusernow?email='+escape(xfm.resources.mailAddress)+'&gecos='+arg('gecos')+'&modu='+arg('account')+'&ID='+xfm.sessionId+'&LogAct=Act_AutoFdw_Save'+nocache",
+	"savebasic": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/moduserbasic?email='+escape(xfm.resources.mailAddress)+'&modu='+arg('account')+'&Quota='+arg('nb_giga')+'&default='+arg('the_default')+'&disable='+arg('disable')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_Account_Quota'+nocache",
+	"saveim": "xfm.rootUrl+'/antispam/ml.php?act=im_save_user&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&account='+arg('account')+'&ffn='+arg('gecos')+'&state='+arg('status')+'&LogAct=Act_Qadm_EditUser'+nocache",
+	"saveadvanced": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/modusernow?email='+escape(xfm.resources.mailAddress)+'&modu='+arg('account')+'&fsaved='+arg('fsaved')+'&cforward='+arg('cforward')+'&vacation='+arg('vacation')+'&vmessage='+arg('vmessage')+'&nforward='+arg('nforward')+'&autorespondtimetogg='+arg('day')+'&autorespondtimetomm='+arg('month')+'&autorespondtimetoaaaa='+arg('year')+'&autorespondnumber='+arg('auto_max')+'&autorespondtime='+arg('auto_time')+'&spamcheck='+arg('spamcheck')+'&ncheck='+arg('ncheck')+'&nemail='+arg('nemail')+'&nformat='+arg('nformat')+'&password1='+arg('password1')+'&password2='+arg('password2')+'&gecos='+arg('gecos')+'&ID='+xfm.sessionId+'&LogAct=Act_AutoFdw_Save'+nocache",
+	"savepassword": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/modusernow?email='+escape(xfm.resources.mailAddress)+'&modu='+arg('account')+'&password1='+arg('password1')+'&password2='+arg('password2')+'&gecos='+arg('gecos')+'&ID='+xfm.sessionId+'&LogAct=Act_AutoFdw_Save'+nocache",
+	"create": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/addusernow'",
+	"setcatchmode": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/setcatchmode?email='+escape(xfm.resources.mailAddress)+'&newu='+arg('account')+'&mode='+arg('mode')+'&ID='+xfm.sessionId+'&LogAct=Act_UserSetCatchMode'+nocache",
+	"im_status": "xfm.rootUrl+'/antispam/ml.php?act=im_status&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&LogAct=Act_UserSetCatchMode'+nocache",
+	"im_domain_subscribe": "xfm.rootUrl+'/antispam/ml.php?act=im_domain_subscribe&email='+escape(xfm.resources.mailAddress)+'&mode='+arg('mode')+'&ID='+xfm.sessionId+'&LogAct=Act_UserSetCatchMode'+nocache",
+	"im_domain_switch": "xfm.rootUrl+'/antispam/ml.php?act=im_domain_switch&email='+escape(xfm.resources.mailAddress)+'&status='+arg('status')+'&mode='+arg('mode')+'&ID='+xfm.sessionId+'&LogAct=Act_UserSetCatchMode'+nocache",
+	"user_exist": "xfm.rootUrl+'/antispam/ml.php?act=is_user_exists&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&account='+arg('account')+nocache",
+	"setbackup": "xfm.rootUrl+'/cgi-bin/_backup.pl?action=set&state='+arg('state')+'&account='+arg('account')+'&id='+xfm.sessionId+'&LogAct=Act_Backup_Account_Set'+nocache"
+	},
+"templates": {
+	"load": "xfm.rootUrl+'/antispam/ml.php?act=tpl_list&email='+escape(xfm.resources.mailAddress)+'&list='+arg('mailinglist')+'&type='+arg('type')+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_TplLoad'+nocache",
+	"changepage": "xfm.rootUrl+'/antispam/ml.php?act=tpl_list&email='+escape(xfm.resources.mailAddress)+'&list='+arg('mailinglist')+'&type='+arg('type')+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_TplLoad'+nocache",
+	"nextpage": "xfm.rootUrl+'/antispam/ml.php?act=tpl_list&email='+escape(xfm.resources.mailAddress)+'&list='+arg('mailinglist')+'&type='+arg('type')+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_TplLoad'+nocache",
+	"prevpage": "xfm.rootUrl+'/antispam/ml.php?act=tpl_list&email='+escape(xfm.resources.mailAddress)+'&list='+arg('mailinglist')+'&type='+arg('type')+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_TplLoad'+nocache",
+	"add": "xfm.rootUrl+'/antispam/ml.php?act=tpl_add&email='+escape(xfm.resources.mailAddress)+'&name='+arg('name')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_TplAdd'+nocache",
+	"del": "xfm.rootUrl+'/antispam/ml.php?act=tpl_del&email='+escape(xfm.resources.mailAddress)+'&name='+arg('name')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_TplDel'+nocache",
+	"multidelete": "xfm.rootUrl+'/antispam/ml.php?act=tpl_multi_del&email='+escape(xfm.resources.mailAddress)+unescape(arg('deletedata'))+'&ID='+xfm.sessionId+'&LogAct=Act_TemplateMulti_Del'+nocache",
+	"export": "xfm.rootUrl+'/antispam/ml.php/templates_'+arg('domain')+'.csv?act=export_templates&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_ExportForward_Domain'+nocache",
+	"load_as": "xfm.rootUrl+'/antispam/ml.php?act=tpl_load_as&email='+escape(xfm.resources.mailAddress)+'&name='+arg('name')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_TplLoadAs'+nocache",
+	"save_as": "xfm.rootUrl+'/antispam/ml.php?act=tpl_save_as&email='+escape(xfm.resources.mailAddress)+'&name='+arg('name')+'&as_setting_enable='+arg('as_setting_enable')+'&as_enable='+arg('as_enable')+'&as_action='+arg('as_action')+'&as_report_enable='+arg('as_report_enable')+'&as_report_freq='+arg('as_report_freq')+'&as_report_lang='+arg('as_report_lang')+'&as_text='+arg('as_text')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_TplSaveAs'+nocache",
+	"load_wl": "xfm.rootUrl+'/antispam/ml.php?act=tpl_load_wl&email='+escape(xfm.resources.mailAddress)+'&name='+arg('name')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_TplLoadWl'+nocache",
+	"add_wl": "xfm.rootUrl+'/antispam/ml.php?act=tpl_add_wl&email='+escape(xfm.resources.mailAddress)+'&name='+arg('name')+'&wl_name='+arg('wl_name')+'&wl_type='+arg('wl_type')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_TplAddWl'+nocache",
+	"save_wl": "xfm.rootUrl+'/antispam/ml.php?act=tpl_save_wl&email='+escape(xfm.resources.mailAddress)+'&enable='+arg('wl_enable')+'&name='+arg('name')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_TplSaveWl'+nocache",
+	"del_wl": "xfm.rootUrl+'/antispam/ml.php?act=tpl_del_wl&email='+escape(xfm.resources.mailAddress)+'&name='+arg('name')+'&wl_name='+arg('wl_name')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_TplDelWl'+nocache",
+	"load_bl": "xfm.rootUrl+'/antispam/ml.php?act=tpl_load_bl&email='+escape(xfm.resources.mailAddress)+'&name='+arg('name')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_TplLoadBl'+nocache",
+	"add_bl": "xfm.rootUrl+'/antispam/ml.php?act=tpl_add_bl&email='+escape(xfm.resources.mailAddress)+'&name='+arg('name')+'&bl_name='+arg('bl_name')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_TplAddBl'+nocache",
+	"save_bl": "xfm.rootUrl+'/antispam/ml.php?act=tpl_save_bl&email='+escape(xfm.resources.mailAddress)+'&enable='+arg('bl_enable')+'&name='+arg('name')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_TplSaveBl'+nocache",
+	"del_bl": "xfm.rootUrl+'/antispam/ml.php?act=tpl_del_bl&email='+escape(xfm.resources.mailAddress)+'&name='+arg('name')+'&bl_name='+arg('bl_name')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_TplDelBl'+nocache",
+	"apply": "xfm.rootUrl+'/antispam/ml.php?act=tpl_apply&email='+escape(xfm.resources.mailAddress)+'&name='+arg('name')+'&user='+arg('user')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_TplApply'+nocache",
+	"apply_all": "xfm.rootUrl+'/antispam/ml.php?act=tpl_apply_all&email='+escape(xfm.resources.mailAddress)+'&name='+arg('name')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_TplApplyAll'+nocache"
+
+	},
+"admin_accounts_management": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Admin_List=1&ID='+xfm.sessionId+nocache",
+	"add": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Admin_Add=1&ID='+xfm.sessionId+nocache",
+	"delete": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Admin_Del=1&ID='+xfm.sessionId+nocache",
+	"update": "xfm.rootUrl+'/cgi-bin/mobilemail?Act_Admin_Change=1&ID='+xfm.sessionId+nocache"
+	},
+"abookcorporate": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_CAB_MGT=1&FromWebmail=1&tpl=corporate_mgt&ID='+xfm.sessionId+nocache",
+	"add": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_CAB_MGT_ADD=1&FromWebmail=1&UserWriteEmail='+arg('account')+'&tpl=corporate_mgt&ID='+xfm.sessionId+nocache",
+	"delete": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_CAB_MGT_DEL=1&FromWebmail=1&UserWriteEmail='+arg('account')+'&tpl=corporate_mgt&ID='+xfm.sessionId+nocache",
+	"update": "xfm.rootUrl+'/cgi-bin/mobilepab?ACT_CAB_MGT_UPDATE=1&FromWebmail=1&UserWriteEmail='+arg('account')+'&UserWriteStatus='+arg('abook_status')+'&UserStatusEmail=&tpl=corporate_mgt&ID='+xfm.sessionId+nocache"
+	},
+"admincalendarcorporate": {
+	"load": "xfm.rootUrl+'/cgi-bin/calendar?ActCorpMgt=1&FromWebmail=1&tpl=corporate_mgt&ID='+xfm.sessionId+nocache",
+	"add": "xfm.rootUrl+'/cgi-bin/calendar?ActCorpMgtAdd=1&FromWebmail=1&UserWriteEmail='+arg('account')+'&tpl=corporate_mgt&ID='+xfm.sessionId+nocache",
+	"delete": "xfm.rootUrl+'/cgi-bin/calendar?ActCorpMgtDel=1&FromWebmail=1&UserWriteEmail='+arg('account')+'&tpl=corporate_mgt&ID='+xfm.sessionId+nocache",
+	"selectcolor": "xfm.rootUrl+'/cgi-bin/calendar?ActCorpMgtSelCol=1&FromWebmail=1&CorporateEventColor='+arg('color')+'&tpl=corporate_mgt&ID='+xfm.sessionId+nocache",
+	"update": "xfm.rootUrl+'/cgi-bin/calendar?ActCorpMgtUpdate=1&FromWebmail=1&UserWriteEmail='+arg('account')+'&UserStatusEmail='+arg('calendar_status')+'&tpl=corporate_mgt&ID='+xfm.sessionId+nocache"
+	},
+"forwards": {
+	"load": "xfm.rootUrl+'/antispam/ml.php?act=list_forwards&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('page')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"get": "xfm.rootUrl+'/antispam/ml.php?act=get_forward&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&account='+arg('account')+nocache",
+	"oldload": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/showforwards?email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('page')+'&LogAct=Act_AutoFwd_Load'+nocache",
+	"export": "xfm.rootUrl+'/antispam/ml.php/forwards_'+arg('domain')+'.csv?act=export_forwards&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_ExportForward_Domain'+nocache",
+	"oldprevpage": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/showforwards?email='+escape(xfm.resources.mailAddress)+'&page='+forwards_setPrevPage()+'&ID='+xfm.sessionId+'&LogAct=Act_AutoFwd_Load'+nocache",
+	"oldnextpage": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/showforwards?email='+escape(xfm.resources.mailAddress)+'&page='+forwards_setNextPage()+'&ID='+xfm.sessionId+'&LogAct=Act_AutoFwd_Load'+nocache",
+	"nextpage": "xfm.rootUrl+'/antispam/ml.php?act=list_forwards&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"prevpage": "xfm.rootUrl+'/antispam/ml.php?act=list_forwards&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"changepage": "xfm.rootUrl+'/antispam/ml.php?act=list_forwards&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"delete": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/deldotqmailnow?email='+escape(xfm.resources.mailAddress)+'&modu='+arg('alias')+'&ID='+xfm.sessionId+'&LogAct=Act_AutoFwd_Del'+nocache",
+	"multidelete": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/multideldotqmailnow?email='+escape(xfm.resources.mailAddress)+unescape(arg('deletedata'))+'&ID='+xfm.sessionId+'&LogAct=Act_AutoFwd_Del'+nocache"
+	},
+"alias": {
+	"create": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/adddotqmailnow?email='+encodeURIComponent(xfm.resources.mailAddress)+'&page='+arg('page')+'&ID='+xfm.sessionId+'&LogAct=Act_Alias_Create'+nocache",
+	"add": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/moddotqmailnow?email='+encodeURIComponent(xfm.resources.mailAddress)+'&action=add&page='+arg('page')+'&ID='+xfm.sessionId+'&LogAct=Act_Alias_Add'+nocache",
+	"remove": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/moddotqmailnow?email='+encodeURIComponent(xfm.resources.mailAddress)+'&action=delentry&page='+arg('page')+'&ID='+xfm.sessionId+'&LogAct=Act_Alias_Remove'+nocache"
+	},
+"autoresponds": {
+	"load": "xfm.rootUrl+'/antispam/ml.php?act=list_autoreply&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('paginationionId')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"get": "xfm.rootUrl+'/antispam/ml.php?act=get_autorespond&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&account='+arg('account')+nocache",
+	"add": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/modautorespondnow?email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&newu='+arg('newu')+'&LogAct=Act_Qadm_ExportForward_Domain'+nocache",
+	"save": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/modautorespondnow?email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&newu='+arg('newu')+'&owner='+arg('copyto')+'&alias='+arg('subject')+'&message='+arg('text')+'&LogAct=Act_Qadm_ExportForward_Domain'+nocache",
+	"export": "xfm.rootUrl+'/antispam/ml.php/autoresponds_'+arg('domain')+'.csv?act=export_autoreplys&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_ExportForward_Domain'+nocache",
+	"nextpage": "xfm.rootUrl+'/antispam/ml.php?act=list_autoreply&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"prevpage": "xfm.rootUrl+'/antispam/ml.php?act=list_autoreply&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"changepage": "xfm.rootUrl+'/antispam/ml.php?act=list_autoreply&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"delete": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/delautorespondnow?email='+escape(xfm.resources.mailAddress)+'&modu='+arg('modu')+'&ID='+xfm.sessionId+'&LogAct=Act_AutoFwd_Del'+nocache",
+	"multidelete": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/multidelautorespondnow?email='+escape(xfm.resources.mailAddress)+unescape(arg('deletedata'))+'&ID='+xfm.sessionId+'&LogAct=Act_AutoFwd_Del'+nocache"
+	},
+"mailinglists": {
+	"load": "xfm.rootUrl+'/antispam/ml.php?act=list_mailinglists&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"add": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/addmailinglistnow?email='+escape(xfm.resources.mailAddress)+'&newu='+arg('newu')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_Ml_Add'+nocache",
+	"get": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/modmailinglist?email='+escape(xfm.resources.mailAddress)+'&modu='+arg('mailinglist')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_Ml_Edit'+nocache",
+	"loadsubscribers": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/showlistusers?email='+escape(xfm.resources.mailAddress)+'&modu='+arg('mailinglist')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_Subscrib_Load'+nocache",
+	"loadmoderators": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/showlistmod?email='+escape(xfm.resources.mailAddress)+'&modu='+arg('mailinglist')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_Subscrib_Load'+nocache",
+	"loadadministrators": "xfm.rootUrl+'/antispam/ml.php?act=list_ml_admin&email='+escape(xfm.resources.mailAddress)+'&modu='+arg('mailinglist')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_MlAdmin_Load'+nocache",
+	"updateadministrators": "xfm.rootUrl+'/antispam/ml.php?act=update_ml_admin&email='+escape(xfm.resources.mailAddress)+'&modu='+arg('mailinglist')+'&moda='+arg('theadmin')+'&mode='+arg('themode')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_MlAdmin_Load'+nocache",
+	"subscriber_del": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/dellistusernow?email='+escape(xfm.resources.mailAddress)+'&modu='+arg('mailinglist')+'&newu='+arg('email')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_subscrib_Del'+nocache",
+	"subscriber_add": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/addlistusernow?email='+escape(xfm.resources.mailAddress)+'&modu='+arg('mailinglist')+'&newu='+arg('email')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_Ml_Add_Subscriber'+nocache",
+	"moderator_add": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/addlistmodnow?email='+escape(xfm.resources.mailAddress)+'&modu='+arg('mailinglist')+'&newu='+arg('email')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_Ml_Add_Moderator'+nocache",
+	"moderator_del": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/dellistmodnow?email='+escape(xfm.resources.mailAddress)+'&modu='+arg('mailinglist')+'&newu='+arg('email')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_Moderator_Del'+nocache",
+	"export": "xfm.rootUrl+'/antispam/ml.php/mailinglists_'+arg('domain')+'.csv?act=export_mailinglists&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_ExportForward_Domain'+nocache",
+	"nextpage": "xfm.rootUrl+'/antispam/ml.php?act=list_mailinglists&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"prevpage": "xfm.rootUrl+'/antispam/ml.php?act=list_mailinglists&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"changepage": "xfm.rootUrl+'/antispam/ml.php?act=list_mailinglists&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"save": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/modmailinglistnow?email='+escape(xfm.resources.mailAddress)+unescape(arg('savedata'))+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_Ml_Save'+nocache",
+	"delete": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/trashmailinglistnow?email='+escape(xfm.resources.mailAddress)+'&modu='+arg('alias')+'&ID='+xfm.sessionId+'&LogAct=Act_AutoFwd_Del'+nocache",
+	"multidelete": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/multitrashmailinglistnow?email='+escape(xfm.resources.mailAddress)+unescape(arg('deletedata'))+'&ID='+xfm.sessionId+'&LogAct=Act_AutoFwd_Del'+nocache",
+	"exportsubscribers": "xfm.rootUrl+'/antispam/ml.php/export_'+arg('mailinglist')+'.csv?act=export&email='+escape(xfm.resources.mailAddress)+'&list='+arg('mailinglist')+'&type='+arg('type')+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_Export_Ml'+nocache"
+	},
+"mailinglistscancelled": {
+	"load": "xfm.rootUrl+'/antispam/ml.php?act=list_mailinglistscancelled&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&page='+arg('paginationIndex')+'&nbitems='+xfm.resources.settings.admin_nb_items+'&search='+arg('searchcrit')+'&letter='+arg('index')+'&LogAct=Act_Qadm_IMGetDomainStatus'+nocache",
+	"oldload": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/showmailinglisttrash?email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_Delete_Ml_Load'+nocache",
+	"delete": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/delmailinglistnow?email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&'+httpIdxArray('modu', 'mlId', 1)+'&LogAct=Act_Qadm_Delete_Ml_Del'+nocache",
+	"restore": "xfm.rootUrl+'/cgi-bin/qmailadmin/com/restoremailinglist?email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&'+httpIdxArray('modu', 'mlId', 1)+'&LogAct=Act_Qadm_Delete_Ml_Restore'+nocache",
+	"export": "xfm.rootUrl+'/antispam/ml.php/deletedmailinglists_'+arg('domain')+'.csv?act=export_deletedmailinglists&email='+escape(xfm.resources.mailAddress)+'&ID='+xfm.sessionId+'&LogAct=Act_Qadm_ExportForward_Domain'+nocache"
+	},
+"notelist_list": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilenotes?ACT_NOTELIST_LIST=1&tpl=notelist_list&ID='+xfm.sessionId+nocache"
+	},
+"notelist": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilenotes?ACT_NOTE_LIST=1&SORT='+arg('noteSort')+'&NLUID='+arg('notelistid')+'&allowAccessMode='+arg('allowAccessMode')+'&tpl=notelist_content&ID='+xfm.sessionId+nocache",
+	"edit": "xfm.rootUrl+'/cgi-bin/mobilenotes?ACT_NOTELIST=1&tpl=notelist_edit&ID='+xfm.sessionId+'&NLUID='+arg('id')+nocache",
+	"add": "xfm.rootUrl+'/cgi-bin/mobilenotes?ACT_NOTELIST_SET=1&tpl=notelist_edit&ID='+xfm.sessionId+'&NAME='+arg('name')+'&COMMENT='+arg('comment')+'&ATOMICREQ=1'+nocache",
+	"update": "xfm.rootUrl+'/cgi-bin/mobilenotes?ACT_NOTELIST_SET=1&tpl=notelist_edit&ID='+xfm.sessionId+'&NLUID='+arg('id')+'&ATOMICREQ=1'+'&NAME='+arg('name')+'&COMMENT='+arg('comment')+nocache",
+	"delete": "xfm.rootUrl+'/cgi-bin/mobilenotes?ACT_NOTELIST_DEL=1&tpl=notelist_delete&ID='+xfm.sessionId+'&NLUID='+arg('id')+'&ATOMICREQ=1'+nocache",
+	"copy": "xfm.rootUrl+'/cgi-bin/mobilenotes?ACT_NOTE_COPY=1&NLUID='+arg('source')+'&TARGET='+arg('target')+'&tpl=notelist_content&ID='+xfm.sessionId+'&'+httpArray('NUID', 'itemId')+nocache",
+	"move": "xfm.rootUrl+'/cgi-bin/mobilenotes?ACT_NOTE_MOVE=1&NLUID='+arg('source')+'&TARGET='+arg('target')+'&tpl=notelist_content&ID='+xfm.sessionId+'&'+httpArray('NUID', 'itemId')+nocache"
+	},
+
+"note": {
+	"load": "xfm.rootUrl+'/cgi-bin/mobilenotes?ACT_NOTE=1&tpl=noteedit&NUID='+arg('uid')+'&NLUID='+arg('notelistid')+'&tabId='+arg('tabId')+'&ID='+xfm.sessionId+nocache",
+	"delete": "xfm.rootUrl+'/cgi-bin/mobilenotes?ACT_NOTE_DEL=1&&tpl=notelist_content&'+httpArray('NUID', 'uid')+'&NLUID='+arg('notelistid')+'&ID='+xfm.sessionId+nocache",
+	"add": "xfm.rootUrl+'/cgi-bin/mobilenotes?ACT_NOTE_SET=1&tpl=noteedit&ID='+xfm.sessionId+nocache",
+	"edit": "xfm.rootUrl+'/cgi-bin/mobilenotes?ACT_NOTE_SET=1&tpl=noteedit&ID='+xfm.sessionId+nocache",
+	"save": "xfm.rootUrl+'/cgi-bin/mobilenotes?ACT_NOTE_SET=1&tpl=noteedit&ID='+xfm.sessionId+nocache"
+	},
+}

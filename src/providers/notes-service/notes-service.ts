@@ -12,8 +12,11 @@ import 'rxjs/add/operator/map';
 export class NotesService {
 
   constructor(public http: Http) {}
-  getNotes(){
-    return this.http.get('http://www1.dc.xandmail.com/ca/testbuild_leggera/cgi-bin/ajaxnotes?ACT_NOTE_LIST=1&Tpl=notelist_list&NLUID=1&GOPAGE=1&ID=IeBAJjpkyZMWrUoVMmBALUq0_rRdq0alCqS.JXehS6_qAJ16da9A-&nocache=975138.3514046905').map((res:Response) => res.json());
+  getNotesLists(sessionid){
+    return this.http.get('https://www1.dc.xandmail.com/ca/testbuild_aruba_staff/cgi-bin/mobilenotes?ACT_NOTELIST_LIST=1&tpl=notelist_list&ID='+sessionid).map((res:Response) => res.json());
+  }
+  getNotes(sessionid, listid){
+    return this.http.get('https://www1.dc.xandmail.com/ca/testbuild_aruba_staff/cgi-bin/mobilenotes?ACT_NOTE_LIST=1&NLUID='+listid+'&tpl=notelist_content&ID='+sessionid).map((res:Response)=> res.json());
   }
 
 }

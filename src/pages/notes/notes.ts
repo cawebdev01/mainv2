@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { NotesService } from '../../providers/notes-service/notes-service'
+import { NotePage } from '../note/note';
 /**
  * Generated class for the NotesPage page.
  *
@@ -20,24 +21,24 @@ export class NotesPage {
     private notesService: NotesService,
   ) {
     this.sessionid = navParams.get("sessionid");
-    this.loadNotes();
+    this.loadNotesLists();
   }
   status;
   data;
   sortInfo;
   pageInfo;
   countTotal;
+  objectid;
   //itemslist;
-
-  loadNotes(){
-    this.notesService.getNotes().subscribe(notes => {
+  load
+  loadNotesLists(){
+    this.notesService.getNotesLists(this.sessionid).subscribe(notes => {
       this.status = notes.status,
-      this.data = notes.data,
-      this.sortInfo = notes.sortInfo,
-      this.pageInfo = notes.pageInfo,
-      this.countTotal = notes.countTotal
-     // this.itemslist = notes.itemslist
+      this.data = notes.data
     })
+  }
+  getnotes(objectid){
+    this.navCtrl.push(NotePage, {"sessionid": this.sessionid, "objectid": objectid})
   }
 
 }
