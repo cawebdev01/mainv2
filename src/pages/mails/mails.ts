@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 //import { HttpProvider } from '../../providers/http/http';
 import { MailsService } from '../../providers/mails-service/mails-service';
-
+import { MailPage } from '../mail/mail';
 /**
  * Generated class for the MailsPage page.
  *
@@ -20,7 +20,7 @@ export class MailsPage {
   public sessionid;
 
   constructor(
-    public navCtrl: NavController, 
+    public nav: NavController, 
     public navParams: NavParams, 
     private mailsService: MailsService, 
   ) {
@@ -36,6 +36,7 @@ export class MailsPage {
   newMsg: number;
   mails: any;
   status : object;
+  public msgid;
   
   loadMails(){
       this.mailsService.getMails(this.sessionid).subscribe(mails => {
@@ -43,8 +44,20 @@ export class MailsPage {
       this.newMsg = mails.newMsg,
       this.mails = mails.data,
       this.status = mails.status
+      //this.msgid =
       //console.log(this.mailsData);
    })
+  }
+  objectid;
+  from;
+  to;
+  subject;
+  date;
+  text;
+  plaintext;
+  maildetail(objectid){
+    this.nav.push(MailPage, {"sessionid": this.sessionid, "msgid" : objectid});
+   
   }
   /*getMails(){
     this.getJsonData().subscribe(

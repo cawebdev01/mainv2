@@ -10,14 +10,16 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  {{ sessionid }} <br>
+  <!--p> {{ sessionid }} <br>
   {{ status | json }}
-  <p> Vous avez {{ newMsg }} messages(s) non lu(s) parmis vos {{msgNb}}. </p><br>
+  Vous avez {{ newMsg }} messages(s) non lu(s) parmis vos {{ msgNb }}. </p><br-->
   <ion-list>
     <ion-item text-wrap *ngFor="let mail of mails">
-      <p>from: {{ mail.from }}, 
-        <br>  le {{ mail.date }} </p>
-      <p>{{ mail.subject }}</p>
+      <p (click)="maildetail(mail.objectId)">
+        from: {{ mail.from.addr }}, <br>
+        {{ mail.date }} <br>
+        {{ mail.subject }}
+      </p>
     </ion-item>
   </ion-list> 
 </ion-content>

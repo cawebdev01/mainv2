@@ -12,10 +12,16 @@ import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login' ;
 import { HomePage } from '../pages/home/home';
 import { MailsPage } from '../pages/mails/mails';
+import { MailPage } from '../pages/mail/mail';
+import { NotePage } from '../pages/note/note';
 import { NotesPage } from '../pages/notes/notes';
+import { AbookPage } from '../pages/abook/abook';
 import { AbooksPage } from '../pages/abooks/abooks';
 import { CalendarsPage } from '../pages/calendars/calendars';
+import { CalendarPage } from '../pages/calendar/calendar';
 import { StoragePage } from '../pages/storage/storage';
+import { TaskPage } from '../pages/task/task';
+import { DocPage } from '../pages/doc/doc';
 import { TasksPage } from '../pages/tasks/tasks';
 import { HttpProvider } from '../providers/http/http';
 import { MailsService } from '../providers/mails-service/mails-service';
@@ -30,11 +36,17 @@ import { CalendarsService } from '../providers/calendars-service/calendars-servi
     MyApp,
     LoginPage,
     HomePage,
+    MailPage,
     MailsPage,
     NotesPage,
+    NotePage,
     AbooksPage,
+    AbookPage,
+    CalendarPage,
     CalendarsPage,
+    DocPage,
     StoragePage,
+    TaskPage,
     TasksPage,
 
   ],
@@ -50,11 +62,17 @@ import { CalendarsService } from '../providers/calendars-service/calendars-servi
     MyApp,
     LoginPage,
     HomePage,
+    MailPage,
     MailsPage,
     NotesPage,
+    NotePage,
     AbooksPage,
+    AbookPage,
+    CalendarPage,
     CalendarsPage,
+    DocPage,
     StoragePage,
+    TaskPage,
     TasksPage,
 
   ],

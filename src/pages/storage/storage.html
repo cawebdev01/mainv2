@@ -14,6 +14,12 @@
 
 
 <ion-content padding>
-    {{ sessionid}}
-
+  <ion-list>
+    <ion-item  text-wrap *ngFor="let doc of data" (click)="doc()">
+      <img src="{{ doc.image }}" alt="">
+      {{ doc.name }} / {{ doc.size }}  
+    </ion-item>
+  </ion-list>
+    {{ sessionid}} <br>
+    {{ status | json }} <br>
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { TasksService } from '../../providers/tasks-service/tasks-service'
 
 /**
  * Generated class for the TasksPage page.
@@ -14,12 +15,21 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class TasksPage {
   public sessionid;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private tasksservice: TasksService,
+  ) {
     this.sessionid = navParams.get("sessionid");
+    this.loadTasks();
   }
+  data;
+  status;
+  loadTasks(){
+    this.tasksservice.getTasks(this.sessionid).subscribe(tasks => {
+      this.data = tasks.data;
+      this.status = tasks.status;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TasksPage');
+    })
   }
-
 }
