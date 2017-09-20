@@ -27,19 +27,19 @@ export class LoginPage {
       this.showError("Access Denied");
     }*/
     this.auth.login(this.email, this.password).subscribe(allowed => {
-      if (allowed.status.err_code == 0) { 
+      //if (allowed.status.err_code == 0) { 
         console.log(allowed); 
         this.nav.setRoot(HomePage, {
           "sessionid": allowed.sessionid,
           "email" : allowed.resources.mailAddress,
         });
         
-      } else if(allowed.status.err_code == 1000) {
-        this.showError("Echec lors de l'authentification");
-      }
-      else{
-        this.showError("Access Denied");
-      }
+      //} else if(allowed.status.err_code == 1000) {
+      //  this.showError("Echec lors de l'authentification");
+      //}
+      //else{
+      //  this.showError("Access Denied");
+      //}
     },
       error => {
         this.showError(error);

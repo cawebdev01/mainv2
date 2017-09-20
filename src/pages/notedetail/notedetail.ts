@@ -2,23 +2,20 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the TaskPage page.
+ * Generated class for the NotedetailPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
 @Component({
-  selector: 'page-task',
-  templateUrl: 'task.html',
+  selector: 'page-notedetail',
+  templateUrl: 'notedetail.html',
 })
-export class TaskPage {
+export class NotedetailPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TaskPage');
-  }
 
 }

@@ -6,6 +6,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule, } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+//import { LocalNotifications } from '@ionic-native/local-notifications';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
@@ -23,13 +24,12 @@ import { StoragePage } from '../pages/storage/storage';
 import { TaskPage } from '../pages/task/task';
 import { DocPage } from '../pages/doc/doc';
 import { TasksPage } from '../pages/tasks/tasks';
-import { HttpProvider } from '../providers/http/http';
-import { MailsService } from '../providers/mails-service/mails-service';
-import { AbooksService } from '../providers/abooks-service/abooks-service';
-import { NotesService } from '../providers/notes-service/notes-service';
-import { TasksService } from '../providers/tasks-service/tasks-service';
-import { StorageService } from '../providers/storage-service/storage-service';
-import { CalendarsService } from '../providers/calendars-service/calendars-service';
+import { MailsService } from '../providers/mails-service';
+import { AbooksService } from '../providers/abooks-service';
+import { NotesService } from '../providers/notes-service';
+import { TasksService } from '../providers/tasks-service';
+import { StorageService } from '../providers/storage-service';
+import { CalendarsService } from '../providers/calendars-service';
 
 @NgModule({
   declarations: [
@@ -79,9 +79,9 @@ import { CalendarsService } from '../providers/calendars-service/calendars-servi
   providers: [
     StatusBar,
     SplashScreen,
+    //LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
-    HttpProvider,
     MailsService,
     AbooksService,
     NotesService,

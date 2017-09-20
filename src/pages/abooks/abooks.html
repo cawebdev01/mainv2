@@ -6,14 +6,13 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Contacts</ion-title>
+    <ion-title>Adress Books</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  {{ sessionid }}
   <ion-list>  
     <ion-item text-wrap *ngFor="let abook of abooks">
-      {{ abook.label }} ( {{abook.id}} / {{ abook.objectId }})
+      <p (click)="abookdetail(abook.objectId)">{{ abook.label }} ( {{abook.id}} / {{ abook.objectId }})</p>
     </ion-item>
   </ion-list>   
 </ion-content>

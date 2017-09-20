@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { NotesService } from '../../providers/notes-service/notes-service'
+import { NotesService } from '../../providers/notes-service';
+import { NotedetailPage } from '../notedetail/notedetail';
 
 @Component({
   selector: 'page-note',
@@ -21,6 +22,6 @@ export class NotePage {
         this.data = notes.data;
       })
   }
-
+  
 
 }

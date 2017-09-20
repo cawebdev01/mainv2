@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { AbooksService } from '../../providers/abooks-service/abooks-service';
-/**
- * Generated class for the AbooksPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AbooksService } from '../../providers/abooks-service';
+import { AbookPage } from '../abook/abook';
 
 @Component({
   selector: 'page-abooks',
@@ -37,5 +32,8 @@ export class AbooksPage {
         this.abooks = data.abooks
       }
     )
+  }
+  abookdetail(objectid){
+    this.navCtrl.push(AbookPage, {"sessionid": this.sessionid, "abid": objectid})
   }
 }

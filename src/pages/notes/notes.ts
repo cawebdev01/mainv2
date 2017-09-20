@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { NotesService } from '../../providers/notes-service/notes-service'
+import { NotesService } from '../../providers/notes-service'
 import { NotePage } from '../note/note';
 /**
  * Generated class for the NotesPage page.

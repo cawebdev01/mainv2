@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { StorageService } from '../../providers/storage-service/storage-service';
+import { StorageService } from '../../providers/storage-service';
 
 /**
  * Generated class for the StoragePage page.

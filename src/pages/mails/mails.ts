@@ -1,14 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-//import { HttpProvider } from '../../providers/http/http';
-import { MailsService } from '../../providers/mails-service/mails-service';
+import { MailsService } from '../../providers/mails-service';
 import { MailPage } from '../mail/mail';
-/**
- * Generated class for the MailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-mails',

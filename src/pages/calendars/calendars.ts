@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { CalendarsService } from '../../providers/calendars-service/calendars-service';
+import { CalendarsService } from '../../providers/calendars-service';
+import { CalendarPage} from '../calendar/calendar';
 
 @Component({
   selector: 'page-calendars',
   templateUrl: 'calendars.html',
 })
 export class CalendarsPage {
-  public sessionid;
+  public sessionid; calid;
 
   constructor(
     public navCtrl: NavController, 
@@ -24,6 +25,9 @@ export class CalendarsPage {
     this.calService.getCals(this.sessionid).subscribe(callist => {
       this.calendars = callist.calendars
     })
+    
+  }
+  loadCal(){
     
   }
 

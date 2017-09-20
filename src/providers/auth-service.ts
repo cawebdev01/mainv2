@@ -20,7 +20,7 @@ export class AuthService {
   password;
   constructor(public http: Http){}
   public login(/*credentials*/email, password) {
-    return this.http.get('https://www1.dc.xandmail.com/ca/testbuild_aruba_staff/authenticate.php?login='+email+'&password='+password+'&lang=en&NEWMOBILE=1').map((res:Response) => res.json());
+    return this.http.get('http://www1.dc.xandmail.com/ca/testbuild_aruba_staff/authenticate.php?login='+email+'&password='+password+'&lang=en&NEWMOBILE=1').map((res:Response) => res.json());
     /*if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {

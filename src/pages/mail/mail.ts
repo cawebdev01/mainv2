@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { MailsService } from '../../providers/mails-service/mails-service'
+import { MailsService } from '../../providers/mails-service'
 
 @Component({
   selector: 'page-mail',
