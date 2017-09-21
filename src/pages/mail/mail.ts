@@ -14,7 +14,7 @@ export class MailPage {
     public navParams: NavParams,
     private mailsService: MailsService,
   ) {
-    this.sessionid = navParams.get("sessionid");
+    this.sessionid = localStorage.getItem('sessionid');
     this.msgid = navParams.get("msgid");
     this.mailsService.getMail(this.sessionid, this.msgid).subscribe(mail => {
       //this.objectid = mail.objectId,

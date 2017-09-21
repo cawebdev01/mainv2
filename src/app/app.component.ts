@@ -10,9 +10,9 @@ import { LoginPage } from '../pages/login/login';
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class XamApp {
   rootPage:any = LoginPage;
-  public sessionid: string;
+  //public sessionid: string;
   constructor(
     platform: Platform, 
     statusBar: StatusBar, 

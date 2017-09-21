@@ -6,10 +6,10 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule, } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-//import { LocalNotifications } from '@ionic-native/local-notifications';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 import { IonicStorageModule } from '@ionic/storage';
 
-import { MyApp } from './app.component';
+import { XamApp } from './app.component';
 import { LoginPage } from '../pages/login/login' ;
 import { HomePage } from '../pages/home/home';
 import { MailsPage } from '../pages/mails/mails';
@@ -33,7 +33,7 @@ import { CalendarsService } from '../providers/calendars-service';
 
 @NgModule({
   declarations: [
-    MyApp,
+    XamApp,
     LoginPage,
     HomePage,
     MailPage,
@@ -53,13 +53,13 @@ import { CalendarsService } from '../providers/calendars-service';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(XamApp),
     CacheModule.forRoot(),
     IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
+    XamApp,
     LoginPage,
     HomePage,
     MailPage,
@@ -79,7 +79,7 @@ import { CalendarsService } from '../providers/calendars-service';
   providers: [
     StatusBar,
     SplashScreen,
-    //LocalNotifications,
+    LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     MailsService,

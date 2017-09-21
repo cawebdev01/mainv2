@@ -20,6 +20,7 @@ import { StoragePage } from '../storage/storage';
 export class HomePage {
   username = '';
   email = '';
+
   /*notifyTime: any;
   notifications: any[] = [];
   days: any[];
@@ -31,20 +32,23 @@ export class HomePage {
   tasksnbr = 4;
   calnbr = 2;
   storagenbr = 6;*/
-  public sessionid;
+  public sessionid //= 'IeBAKTJo2YMWTAwRMmBAJnzIE2fqxYs_PNhW9sDPhjScfHSpwsGA-' ;
 
 
   constructor(
     private nav: NavController, 
     private auth: AuthService, 
     public navParams: NavParams,
+  
     //public platform: Platform,
     //public alertCtrl: AlertController,
     //public localNotif: LocalNotifications,
 
   ){
-    this.sessionid = navParams.get("sessionid");
-    this.email = navParams.get("email");
+   // localStorage.setItem('sessionid', this.sessionid);
+   // localStorage.setItem('mail', 'ca01@xam.fr');
+    this.sessionid = localStorage.getItem('sessionid') //navParams.get("sessionid");
+    this.email = localStorage.getItem('mail');//navParams.get("email");
    /* this.notifyTime = moment(new Date()).format();
     this.chosenHours = new Date().getHours();
     this.chosenMinutes = new Date().getMinutes();
@@ -131,7 +135,7 @@ export class HomePage {
     
   }*/
   public mails(){
-    this.nav.push(MailsPage, {"sessionid": this.sessionid})
+    this.nav.push(MailsPage)
   }
   public abooks(){
     this.nav.push(AbooksPage, {"sessionid": this.sessionid})

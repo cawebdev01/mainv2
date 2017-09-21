@@ -17,7 +17,7 @@ export class MailsPage {
     public navParams: NavParams, 
     private mailsService: MailsService, 
   ) {
-    this.sessionid = navParams.get("sessionid");
+    this.sessionid = localStorage.getItem('sessionid');
     this.loadMails();
   }
   
@@ -49,7 +49,7 @@ export class MailsPage {
   text;
   plaintext;
   maildetail(objectid){
-    this.nav.push(MailPage, {"sessionid": this.sessionid, "msgid" : objectid});
+    this.nav.push(MailPage, {"msgid" : objectid});
    
   }
   /*getMails(){
