@@ -1,4 +1,3 @@
-//import { MyApp } from '../../app/app.component';
 import { Component } from '@angular/core';
 import { NavController, NavParams, /*ViewController, Loading, Platform, AlertController*/ } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
@@ -10,6 +9,7 @@ import { TasksPage } from '../tasks/tasks';
 import { CalendarsPage } from '../calendars/calendars';
 import { AbooksPage } from '../abooks/abooks';
 import { StoragePage } from '../storage/storage';
+//import { BackgroundMode } from '@ionic-native/cordova-plugin-background-mode'
 //import { LocalNotifications} from '@ionic-native/local-notifications';
 //import * as moment from 'moment';
 
@@ -39,16 +39,16 @@ export class HomePage {
     private nav: NavController, 
     private auth: AuthService, 
     public navParams: NavParams,
+    //private backgroundMode: BackgroundMode,
   
     //public platform: Platform,
     //public alertCtrl: AlertController,
     //public localNotif: LocalNotifications,
 
   ){
-   // localStorage.setItem('sessionid', this.sessionid);
-   // localStorage.setItem('mail', 'ca01@xam.fr');
     this.sessionid = localStorage.getItem('sessionid') //navParams.get("sessionid");
     this.email = localStorage.getItem('mail');//navParams.get("email");
+    //this.backgroundMode.enable();
    /* this.notifyTime = moment(new Date()).format();
     this.chosenHours = new Date().getHours();
     this.chosenMinutes = new Date().getMinutes();

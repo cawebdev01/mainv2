@@ -1,6 +1,14 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+/*import { Calendar } from '@ionic-native/calendar';
 
+constructor(private calendar: Calendar) { }
+
+
+this.calendar.createCalendar('MyCalendar').then(
+  (msg) => { console.log(msg); },
+  (err) => { console.log(err); }
+);*/
 /**
  * Generated class for the CalendarPage page.
  *

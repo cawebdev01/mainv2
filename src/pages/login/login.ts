@@ -6,16 +6,30 @@ import { Storage } from '@ionic/storage';
 
 declare var navigator : any;
 declare var Connection : any;
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  langs = [
+    {"id":"bo", "value" : "Español (Bolivia)" },
+    {"id":"cz", "value": "Česky"},
+    {"id":"de", "value": "Deutsch"},
+    {"id":"en", "value": "English"},
+    {"id":"es", "value": "Español"},
+    {"id":"fr", "value": "Français"},
+    {"id":"hu", "value": "Magyar"},
+    {"id":"it", "value": "Italiano"},
+    {"id":"mx", "value": "Español (México)"},
+    {"id":"pl", "value": "Polski"}
+]
   loading: Loading;
   email: string;
   mail; data;
   password: string;
-  loginData = {email:'', password:'', lang:'en', NEWMOBILE: '1'};
+  lang;
+  loginData = {email:'', password:'', lang:'', NEWMOBILE: '1'};
   public sessionid;
   constructor(
     public storage: Storage, 
