@@ -37,7 +37,7 @@ export class MailsPage {
       this.newMsg = mails.newMsg,
       this.mails = mails.data,
       this.status = mails.status
-      
+
       //this.msgid =
       //console.log(this.mailsData);
    })
@@ -51,6 +51,7 @@ export class MailsPage {
   plaintext;
   maildetail(objectid){
     this.nav.push(MailPage, {"msgid" : objectid});
+    
    
   }
   /*getMails(){

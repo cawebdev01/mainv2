@@ -18,4 +18,19 @@ export class MailsService {
   getMail(sessionid, msgid){
     return this.http.get('http://www1.dc.xandmail.com/ca/testbuild_aruba_staff/cgi-bin/mobilemail?Act_View=1&ShowFullHeaders=1&KEEPMSGUNREAD=1&ID='+sessionid+'&CONTID=&msgID='+msgid+'&C_Folder=SU5CT1g%3D&R_Folder=SU5CT1g%3D&Body=&TNEF=&nocache=736051.1005814119&_=1505812857901').map((res:Response)=> res.json());
   }
+  /*read(){
+    return this.http.get('http://www1.dc.xandmail.com/ca/testbuild_aruba_staff/cgi-bin/
+    mobilemail?Act_Msgs_MarkRead=1
+    &Tpl=mail_list
+    &CONTID='+arg('contid')+'
+    &ID='+xfm.sessionId+'
+    &C_Folder='+arg('folder')+'
+    &Msg_Nb='+arg('itemCount')+'
+    &'+httpIdxArray('Msg_Sel_', 'msgids', 1)+'
+    &'+httpIdxArray('R_Folder_', 'realFolder',1)+'
+    &noreload='+arg('noReload')+(arg('shortHeader')?'
+    &SHeader=1':'')+(arg('extaccount')?
+    '&extAccount=1':'')+nocache",
+    ')
+  }*/
 }
