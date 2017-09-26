@@ -34,6 +34,6 @@ export class AbooksPage {
     )
   }
   abookdetail(objectid){
-    this.navCtrl.push(AbookPage, {"sessionid": this.sessionid, "abid": objectid})
+    this.navCtrl.push(AbookPage, {"abid": objectid});
   }
 }

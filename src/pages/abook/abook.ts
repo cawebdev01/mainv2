@@ -13,7 +13,7 @@ export class AbookPage {
     public navParams: NavParams,
     private abooksService : AbooksService,
   ) {
-    this.sessionid = navParams.get("sessionid");
+    this.sessionid = localStorage.getItem("sessionid");
     this.abid = navParams.get("abid");
     
     this.abooksService.getAbook(this.sessionid, this.abid).subscribe(abook =>{

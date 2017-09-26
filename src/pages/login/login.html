@@ -35,11 +35,11 @@
               <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="loginData.password" required></ion-input>
             </ion-item>
             
-            <ion-item>
-              <ion-select>
-                <ion-option *ngFor="let lang of langs">{{ lang.value }}</ion-option>
+            <!--ion-item>
+              <ion-select [(ngModel)]="loginData.lang" >
+                <ion-option  *ngFor="let lang of langs" value="lang.id" [ngModelOptions]="{standalone: true}">{{ lang.value }}</ion-option>
               </ion-select>  
-            </ion-item> 
+            </ion-item--> 
           </ion-list>
         </ion-col>
       </ion-row>

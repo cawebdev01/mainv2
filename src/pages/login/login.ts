@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, Loading, ToastController, Platform } from 'ionic-angular';
+import { NavController,/* AlertController,*/ LoadingController, Loading, ToastController, Platform } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { HomePage } from '../home/home';
 import { Storage } from '@ionic/storage';
@@ -29,16 +29,16 @@ export class LoginPage {
   mail; data;
   password: string;
   lang;
-  loginData = {email:'', password:'', lang:'', NEWMOBILE: '1'};
+  loginData = {email:'', password:'', lang:'en', NEWMOBILE: '1'};
   public sessionid;
   constructor(
     public storage: Storage, 
     private nav: NavController, 
     private auth: AuthService, 
-    private alertCtrl: AlertController, 
+   // private alertCtrl: AlertController, 
     private loadingCtrl: LoadingController,
     private platform: Platform,
-    private Alert : AlertController,
+   // private Alert : AlertController,
     private toastCtrl : ToastController,
   ) { }
   
@@ -52,6 +52,7 @@ export class LoginPage {
         localStorage.setItem('sessionid', this.data.sessionid);
         localStorage.setItem('url', this.data.url);        
         localStorage.setItem('mail', this.data.resources.mailAddress);
+        localStorage.setItem('password', this.password);
         localStorage.setItem('test', this.data);
         this.nav.setRoot( HomePage );
       } else if(this.data.status.err_code == 1000) {
@@ -89,11 +90,11 @@ export class LoginPage {
   showError(text) {
     this.loading.dismiss();
  
-    let alert = this.alertCtrl.create({
+   /* let alert = this.alertCtrl.create({
       title: 'Fail',
       subTitle: text,
       buttons: ['OK']
     });
-    alert.present(prompt);
+    alert.present(prompt);*/
   }
 }

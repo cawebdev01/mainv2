@@ -20,7 +20,7 @@ export class NotesPage {
     public navParams: NavParams,
     private notesService: NotesService,
   ) {
-    this.sessionid = navParams.get("sessionid");
+    this.sessionid = localStorage.getItem('sessionid');
     this.loadNotesLists();
   }
   status;
@@ -30,7 +30,7 @@ export class NotesPage {
   countTotal;
   objectid;
   //itemslist;
-  load
+  load;
   loadNotesLists(){
     this.notesService.getNotesLists(this.sessionid).subscribe(notes => {
       this.status = notes.status,

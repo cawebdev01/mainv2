@@ -3,7 +3,7 @@ import { CacheModule } from 'ionic-cache';
 import { HttpModule } from '@angular/http'
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule, } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, /*Alert, AlertController,*/ Loading } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { LocalNotifications } from '@ionic-native/local-notifications';
@@ -78,8 +78,12 @@ import { CalendarsService } from '../providers/calendars-service';
   ],
   providers: [
     StatusBar,
+    //Alert,
     SplashScreen,
     LocalNotifications,
+    //Loading,
+    //Alert,
+    //AlertController,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     MailsService,

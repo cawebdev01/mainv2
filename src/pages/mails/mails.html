@@ -15,11 +15,18 @@
   Vous avez {{ newMsg }} messages(s) non lu(s) parmis vos {{ msgNb }}. </p><br-->
   <ion-list>
     <ion-item text-wrap *ngFor="let mail of mails">
-      <p (click)="maildetail(mail.objectId)">
+      <b *ngIf="mail.isUnread == true"><p (click)="maildetail(mail.objectId)">
         from: {{ mail.from.addr }}, <br>
         {{ mail.date }} <br>
         {{ mail.subject }}
-      </p>
+      </p></b>
+      <span *ngIf="mail.isUnread == false">
+        <p (click)="maildetail(mail.objectId)">
+          from: {{ mail.from.addr }}, <br>
+          {{ mail.date }} <br>
+          {{ mail.subject }}
+        </p>
+      </span>
     </ion-item>
   </ion-list> 
 </ion-content>

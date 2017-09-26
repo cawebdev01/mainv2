@@ -37,6 +37,7 @@ export class MailsPage {
       this.newMsg = mails.newMsg,
       this.mails = mails.data,
       this.status = mails.status
+      
       //this.msgid =
       //console.log(this.mailsData);
    })

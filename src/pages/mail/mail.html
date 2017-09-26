@@ -19,5 +19,5 @@ From: {{ from | json }} <br>
 To: {{ to | json }} 
 Date: {{ date }}
 <hr>
-<p>{{ text }}</p>
+<p [innerHTML]="text"></p>
 </ion-content>

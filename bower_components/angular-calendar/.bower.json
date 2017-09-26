@@ -1,0 +1,40 @@
+{
+  "name": "angular-calendar",
+  "version": "0.0.3",
+  "homepage": "https://github.com/lord2800/angular-calendar",
+  "authors": [
+    "Jeff Hubbard <lord2800@gmail.com>"
+  ],
+  "description": "A calendar control built entirely on Angular.js",
+  "main": "dist/calendar.js",
+  "keywords": [
+    "angular",
+    "calendar",
+    "angular.js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2"
+  },
+  "devDependencies": {
+    "angular-i18n": "~1.2",
+    "angular-mocks": "~1.2"
+  },
+  "_release": "0.0.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.3",
+    "commit": "5d4eb2a3852d002f0b2751bf090c615023521d1d"
+  },
+  "_source": "https://github.com/lord2800/angular-calendar.git",
+  "_target": "^0.0.3",
+  "_originalSource": "angular-calendar",
+  "_direct": true
+}
