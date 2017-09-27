@@ -4,7 +4,7 @@
       Home
     </ion-title>
     <ion-buttons end>
-      <button ion-button (click)="logout()">
+      <button ion-button (click)="logout(sessionid)">
         <ion-icon name="log-out"></ion-icon>
       </button>
     </ion-buttons>
@@ -17,10 +17,10 @@
   <br><br>
   <button ion-button class="mails-btn" full (click)="mails()">
     Mails
-    <ion-badge item-end>{{ mailnbr }}</ion-badge>
+    <ion-badge item-end>{{ msgNb }}</ion-badge>
   </button><br>
   <button ion-button class="contacts-btn" full (click)="abooks()">Contacts
-    <ion-badge item-end>{{ abooknbr }}</ion-badge>  
+    <ion-badge item-end></ion-badge>  
   </button><br>
   <button ion-button class="calendars-btn" full (click)="calendars()">Calendars
     <ion-badge item-end>{{ calnbr }}</ion-badge>  

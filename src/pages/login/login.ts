@@ -53,7 +53,7 @@ export class LoginPage {
         localStorage.setItem('url', this.data.url);        
         localStorage.setItem('mail', this.data.resources.mailAddress);
         localStorage.setItem('password', this.password);
-        localStorage.setItem('test', this.data);
+        //localStorage.setItem('test', this.data);
         this.nav.setRoot( HomePage );
       } else if(this.data.status.err_code == 1000) {
         this.showError(this.data.status.err_txt);

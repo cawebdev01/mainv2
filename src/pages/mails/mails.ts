@@ -6,8 +6,6 @@ import { MailPage } from '../mail/mail';
 @Component({
   selector: 'page-mails',
   templateUrl: 'mails.html',
-  
-
 })
 export class MailsPage {
   public sessionid;
@@ -51,7 +49,7 @@ export class MailsPage {
   plaintext;
   maildetail(objectid){
     this.nav.push(MailPage, {"msgid" : objectid});
-    
+    this.mailsService.markRead(this.sessionid, this.objectid);
    
   }
   /*getMails(){

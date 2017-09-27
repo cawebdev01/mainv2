@@ -20,13 +20,14 @@ export class AuthService {
   currentUser: User;
   email;
   password;
+  sessionid;
   constructor(public http: Http){}
   login(credentials){
     return new Promise((resolve, reject) =>{
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
 
-    this.http.post('http://www1.dc.xandmail.com/ca/testbuild_aruba_staff/authenticate.php?login='+credentials.email+'&password='+credentials.password+'&lang='+credentials.lang+'&NEWMOBILE='+credentials.NEWMOBILE, JSON.stringify(credentials), {headers:headers})
+    this.http.post(/*'https://webmailstafftest.aruba.it/authenticate.php?login='+credentials.email+'&password='+credentials.password+'&lang=en&service=leggera'*/'http://www1.dc.xandmail.com/ca/testbuild_aruba_staff/authenticate.php?login='+credentials.email+'&password='+credentials.password+'&lang='+credentials.lang+'&NEWMOBILE='+credentials.NEWMOBILE, JSON.stringify(credentials), {headers:headers})
       .subscribe(res => {
         resolve(res.json());
       }, (err) => { 
@@ -40,10 +41,12 @@ export class AuthService {
   }
  
   public logout() {
-    return Observable.create(observer => {
+    this.sessionid = localStorage.getItem('sessionid');
+    this.http.get('http://www1.dc.xandmail.com/ca/testbuild_aruba_staff/cgi-bin/mobilemail?Act_Logout=1&&CleanSession=1&ID='+this.sessionid)
+    /*return Observable.create(observer => {
       this.currentUser = null;
       observer.next(true);
       observer.complete();
-    });
+    });*/
   }
 }

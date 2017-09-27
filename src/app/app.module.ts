@@ -30,6 +30,7 @@ import { NotesService } from '../providers/notes-service';
 import { TasksService } from '../providers/tasks-service';
 import { StorageService } from '../providers/storage-service';
 import { CalendarsService } from '../providers/calendars-service';
+import { HomeService } from '../providers/home-service';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { CalendarsService } from '../providers/calendars-service';
     TasksService,
     StorageService,
     CalendarsService,
+    HomeService,
   ]
 })
 export class AppModule {}

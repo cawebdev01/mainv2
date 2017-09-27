@@ -9,6 +9,7 @@ import { TasksPage } from '../tasks/tasks';
 import { CalendarsPage } from '../calendars/calendars';
 import { AbooksPage } from '../abooks/abooks';
 import { StoragePage } from '../storage/storage';
+import { HomeService } from '../../providers/home-service';
 
 @Component({
   selector: 'page-home',
@@ -19,15 +20,22 @@ export class HomePage {
   email = '';
   public sessionid 
   compagnies: any;
+  task;
 
   constructor(
     private nav: NavController, 
     private auth: AuthService, 
     public navParams: NavParams,
     private localNotifications: LocalNotifications,
+    private homeService: HomeService,
+    
   ){    
     this.sessionid = localStorage.getItem('sessionid') 
     this.email = localStorage.getItem('mail');
+    this.loadNews();
+    this.task = setInterval(() =>{
+      this.loadNews();
+    }, 300000)
   }
   public mails(){
     this.nav.push(MailsPage)
@@ -48,9 +56,14 @@ export class HomePage {
     this.nav.push(CalendarsPage, {"sessionid": this.sessionid})
   }
   public logout() {
-    this.auth.logout().subscribe(succ => {
+    this.auth.logout()/*.subscribe(succ => {*/
       this.nav.setRoot(LoginPage)
-    });
+    /*});*/
   }
-  
+  msgNb;
+  loadNews(){
+    this.homeService.getNews(this.sessionid).subscribe(datas => {
+      this.msgNb = datas.msgNb
+    })
+  }
 }
