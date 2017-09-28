@@ -35,7 +35,7 @@ export class HomePage {
     this.loadNews();
     this.task = setInterval(() =>{
       this.loadNews();
-    }, 300000)
+    }, 120000)
   }
   public mails(){
     this.nav.push(MailsPage)
@@ -60,10 +60,28 @@ export class HomePage {
       this.nav.setRoot(LoginPage)
     /*});*/
   }
+ 
   msgNb;
+  key;
   loadNews(){
     this.homeService.getNews(this.sessionid).subscribe(datas => {
       this.msgNb = datas.msgNb
+      if (this.msgNb == 1 ){
+        //alert("Vous avez 1 nouveau message");
+        this.localNotifications.schedule({
+          id: 1,
+          text: 'Vous avez 1 noveau message',
+          sound: 'file://beep.caf',
+          data: { secret : this.key }        })
+      } 
+      if (this.msgNb > 1 ){
+        //alert("Vous avez "+ this.msgNb +" nouveau message");
+        this.localNotifications.schedule({
+          id: 1,
+          text: 'Vous avez '+ this.msgNb + 'noveaux messages',
+          sound: 'file://beep.caf',
+          data: { secret : this.key }        })
+      }
     })
   }
 }
