@@ -40,7 +40,7 @@ export class MailsPage {
       //console.log(this.mailsData);
    })
   }
-  objectid;
+  objectid: number;
   from;
   to;
   subject;
@@ -48,8 +48,9 @@ export class MailsPage {
   text;
   plaintext;
   maildetail(objectid){
+    console.log(this.objectid)
+    this.mailsService.markRead(this.sessionid, objectid);
     this.nav.push(MailPage, {"msgid" : objectid});
-    this.mailsService.markRead(this.sessionid, this.objectid);
    
   }
   /*getMails(){

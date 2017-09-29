@@ -8,6 +8,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { IonicStorageModule } from '@ionic/storage';
+import { NgCalendarModule } from 'ionic2-calendar';
 
 import { XamApp } from './app.component';
 import { LoginPage } from '../pages/login/login' ;
@@ -53,6 +54,7 @@ import { HomeService } from '../providers/home-service';
   ],
   imports: [
     BrowserModule,
+    NgCalendarModule,
     HttpModule,
     IonicModule.forRoot(XamApp),
     CacheModule.forRoot(),
