@@ -4,7 +4,7 @@ import { AuthService } from '../../providers/auth-service';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { LoginPage } from '../login/login';
 import { MailsPage } from '../mails/mails';
-import { NotesPage } from '../notes/notes';
+import { NotesListPage } from '../noteslist/noteslist';
 import { TasksPage } from '../tasks/tasks';
 import { CalendarsPage } from '../calendars/calendars';
 import { AbooksPage } from '../abooks/abooks';
@@ -43,8 +43,8 @@ export class HomePage {
   public abooks(){
     this.nav.push(AbooksPage, {"sessionid": this.sessionid})
   }
-  public notes(){
-    this.nav.push(NotesPage, {"sessionid": this.sessionid})
+  public notes(){ 
+    this.nav.push(NotesListPage)
   }
   public tasks(){
     this.nav.push(TasksPage, {"sessionid": this.sessionid})

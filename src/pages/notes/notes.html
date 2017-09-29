@@ -1,20 +1,17 @@
-<!--
-  Generated template for the NotesPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
-    <ion-title>Notes Listes</ion-title>
+    <ion-title>Notes de la liste {{ listename }}</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
 
-{{ sessionid}}
+
+<ion-content padding>
   <ion-list>
+    {{ objectid }} <br>
     <ion-item text-wrap *ngFor="let note of data">
-      <p (click)="getnotes(note.objectId)">{{ note.label }}</p>
-    </ion-item>
+      <p (click)="getNoteDetail(objectid, note.objectId)">{{ note.title}} <br>
+        {{ note.cDate[2] }}/{{note.cDate[1]}}/{{note.cDate[0]}} <br>
+      </p>
+    </ion-item>  
   </ion-list>
 </ion-content>

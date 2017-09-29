@@ -1,44 +1,31 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { NotesService } from '../../providers/notes-service'
-import { NotePage } from '../note/note';
-/**
- * Generated class for the NotesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { NotesService } from '../../providers/notes-service';
+import { NotedetailPage } from '../notedetail/notedetail';
 
 @Component({
   selector: 'page-notes',
   templateUrl: 'notes.html',
 })
 export class NotesPage {
-  public sessionid;
+  public sessionid; public objectid;
+  status; header; data; noteid;
   constructor(
-    public navCtrl: NavController,
+    public navCtrl: NavController, 
     public navParams: NavParams,
-    private notesService: NotesService,
-  ) {
-    this.sessionid = localStorage.getItem('sessionid');
-    this.loadNotesLists();
+    private notesService: NotesService)
+  {
+      this.sessionid = localStorage.getItem('sessionid');
+      this.objectid = navParams.get("objectid");
+      this.notesService.getNotes(this.sessionid, this.objectid).subscribe(notes =>{
+        this.status = notes.status;
+        this.header = notes.header;
+        this.data = notes.data;
+      })
   }
-  status;
-  data;
-  sortInfo;
-  pageInfo;
-  countTotal;
-  objectid;
-  //itemslist;
-  load;
-  loadNotesLists(){
-    this.notesService.getNotesLists(this.sessionid).subscribe(notes => {
-      this.status = notes.status,
-      this.data = notes.data
-    })
+  getNoteDetail(objectid, noteid){
+    this.navCtrl.push(NotedetailPage, {"objectid": objectid, "noteid":noteid})
   }
-  getnotes(objectid){
-    this.navCtrl.push(NotePage, {"sessionid": this.sessionid, "objectid": objectid})
-  }
+  
 
 }

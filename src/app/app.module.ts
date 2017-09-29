@@ -15,8 +15,9 @@ import { LoginPage } from '../pages/login/login' ;
 import { HomePage } from '../pages/home/home';
 import { MailsPage } from '../pages/mails/mails';
 import { MailPage } from '../pages/mail/mail';
-import { NotePage } from '../pages/note/note';
+import { NotedetailPage } from '../pages/notedetail/notedetail';
 import { NotesPage } from '../pages/notes/notes';
+import { NotesListPage } from '../pages/noteslist/noteslist'
 import { AbookPage } from '../pages/abook/abook';
 import { AbooksPage } from '../pages/abooks/abooks';
 import { CalendarsPage } from '../pages/calendars/calendars';
@@ -40,8 +41,9 @@ import { HomeService } from '../providers/home-service';
     HomePage,
     MailPage,
     MailsPage,
+    NotedetailPage,
     NotesPage,
-    NotePage,
+    NotesListPage,
     AbooksPage,
     AbookPage,
     CalendarPage,
@@ -68,7 +70,8 @@ import { HomeService } from '../providers/home-service';
     MailPage,
     MailsPage,
     NotesPage,
-    NotePage,
+    NotedetailPage,
+    NotesListPage,
     AbooksPage,
     AbookPage,
     CalendarPage,
