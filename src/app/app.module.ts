@@ -20,6 +20,7 @@ import { NotesPage } from '../pages/notes/notes';
 import { NotesListPage } from '../pages/noteslist/noteslist'
 import { AbookPage } from '../pages/abook/abook';
 import { AbooksPage } from '../pages/abooks/abooks';
+import { ContactPage } from '../pages/contact/contact';
 import { CalendarsPage } from '../pages/calendars/calendars';
 import { CalendarPage } from '../pages/calendar/calendar';
 import { StoragePage } from '../pages/storage/storage';
@@ -46,6 +47,7 @@ import { HomeService } from '../providers/home-service';
     NotesListPage,
     AbooksPage,
     AbookPage,
+    ContactPage,
     CalendarPage,
     CalendarsPage,
     DocPage,
@@ -74,6 +76,7 @@ import { HomeService } from '../providers/home-service';
     NotesListPage,
     AbooksPage,
     AbookPage,
+    ContactPage,
     CalendarPage,
     CalendarsPage,
     DocPage,

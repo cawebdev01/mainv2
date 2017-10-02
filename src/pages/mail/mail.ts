@@ -16,7 +16,9 @@ export class MailPage {
   ) {
     this.sessionid = localStorage.getItem('sessionid');
     this.msgid = navParams.get("msgid");
-    
+    this.mailsService.markRead(this.sessionid, this.msgid).subscribe(mail =>{
+      console.log("Lu")
+    });
     this.mailsService.getMail(this.sessionid, this.msgid).subscribe(mail => {
       //this.objectid = mail.objectId,
       this.from = mail.from,

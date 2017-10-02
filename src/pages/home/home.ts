@@ -35,7 +35,7 @@ export class HomePage {
     this.loadNews();
     this.task = setInterval(() =>{
       this.loadNews();
-    }, 120000)
+    }, 30000)
   }
   public mails(){
     this.nav.push(MailsPage)

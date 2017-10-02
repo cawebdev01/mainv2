@@ -16,11 +16,11 @@
 <ion-content padding>
   <ion-list>
     <ion-item text-wrap *ngFor="let contact of data">
-     
+     <p (click)="contactdetail(contact.abid, contact.objectId)">
         <b>{{ contact.label }}</b> <br>
         {{ contact.mail }} <br>
         {{ contact.phone}}
-     
+     </p>
     </ion-item>
   </ion-list>
 </ion-content>

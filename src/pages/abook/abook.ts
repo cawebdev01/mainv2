@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AbooksService } from '../../providers/abooks-service';
+import { ContactPage } from '../contact/contact';
 
 @Component({
   selector: 'page-abook',
@@ -21,6 +22,8 @@ export class AbookPage {
       this.data = abook.data;
     })
   }
-
+  contactdetail(abid, objectid){
+    this.navCtrl.push(ContactPage, {"abid": abid, "cid": objectid})
+  }
 
 }
