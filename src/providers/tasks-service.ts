@@ -10,10 +10,15 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class TasksService {
-
-  constructor(public http: Http) {}
+  public url : string;
+  constructor(public http: Http) {
+    this.url =localStorage.getItem('url');
+  }
+  getTasksList(sessionid){
+    return this.http.get(this.url+'')
+  }
   getTasks(sessionid){
-    return this.http.get('http://www1.dc.xandmail.com/ca/testbuild_aruba_staff/cgi-bin/mobiletasks?ACT_TASK_LIST=1&SORT=&TLUID=1&allowAccessMode=&tpl=tasklist_content&ID='+sessionid+'&nocache=172769.18304377276&_=1505806318500').map((res:Response) => res.json());
+    return this.http.get(this.url+'/cgi-bin/mobiletasks?ACT_TASK_LIST=1&SORT=&TLUID=1&allowAccessMode=&tpl=tasklist_content&ID='+sessionid+'&nocache=172769.18304377276&_=1505806318500').map((res:Response) => res.json());
   }
 
 
