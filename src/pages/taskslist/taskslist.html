@@ -16,7 +16,9 @@
 <ion-content padding>
   <ion-list>
     <ion-item text-wrap *ngFor="let task of data">
+      <p (click)="tasklist(task.objectId)">
       {{ task.label }} / {{ task.id }} / {{ task.objectId }}<br>
+      </p>
     </ion-item>
   </ion-list>
 </ion-content>

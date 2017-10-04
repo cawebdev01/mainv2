@@ -15,18 +15,20 @@ import { StorageService } from '../../providers/storage-service';
 })
 export class StoragePage {
   public sessionid;
+  folderid;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private docsService: StorageService,  
   ) {
-    this.sessionid = navParams.get("sessionid");
+    this.sessionid = localStorage.getItem("sessionid");
+    this.folderid = navParams.get("folderid");
     this.loadDocs();
   }
   status;
   data;
   loadDocs(){
-    this.docsService.getDocs(this.sessionid).subscribe(docs => {
+    this.docsService.getDocs(this.sessionid, this.folderid).subscribe(docs => {
     this.status = docs.status,
     this.data = docs.data
     })

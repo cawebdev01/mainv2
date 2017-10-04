@@ -1,24 +1,33 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the TaskPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { TasksService } from '../../providers/tasks-service';
 
 @Component({
   selector: 'page-task',
   templateUrl: 'task.html',
 })
 export class TaskPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public sessionid;
+  private tsklistid;
+  private objid;
+  title; priority; state; comment; percent;
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private tasksService : TasksService,
+  ) {
+    this.sessionid = localStorage.getItem("sessionid");
+    this.tsklistid = navParams.get("tsklistid");
+    this.objid = navParams.get("objid");
+    this.loadDetails();
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TaskPage');
+  loadDetails(){
+    this.tasksService.getTask(this.sessionid, this.tsklistid, this.objid).subscribe(task => {
+      this.title = task.name;
+      this.priority = task.priority;
+      this.state = task.state;
+      this.percent = task.percent;
+      this.comment = task.comment;
+    })
   }
-
 }

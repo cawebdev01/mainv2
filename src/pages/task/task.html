@@ -7,12 +7,15 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>task</ion-title>
+    <ion-title>task {{ title }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <h1>{{ title }}</h1>
+  <h2>{{ priority }}</h2>
+  <h2>faite à {{ percent }} %, avec l'etat {{ state }}</h2>
+  <p>Comment : {{ comment }}</p>
 </ion-content>

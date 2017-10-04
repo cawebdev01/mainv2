@@ -16,10 +16,10 @@
 <ion-content padding>
   l'id de la session est {{ sessionid}} <br>
   <ion-list>
-    <ion-item text-wrap *ngFor="let task of data" (click)="task()">
-      {{ task.title }} <br>
+    <ion-item text-wrap *ngFor="let task of data">
+      <p  (click)="taskdetail(task.objectId, this.tsklistid)">{{ task.title }} <br>
       start: {{ task.sDate[0]}}/{{ task.sDate[1]}}/{{ task.sDate[2]}} <br>
-      end : {{ task.sDate[0]}}/{{ task.sDate[1]}}/{{ task.sDate[2]}} 
+      end : {{ task.eDate[0]}}/{{ task.eDate[1]}}/{{ task.eDate[2]}} </p>
     </ion-item>
   </ion-list>>
   {{ status | json }}
