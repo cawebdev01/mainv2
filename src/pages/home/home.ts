@@ -5,7 +5,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { LoginPage } from '../login/login';
 import { MailsPage } from '../mails/mails';
 import { NotesListPage } from '../noteslist/noteslist';
-import { TasksPage } from '../tasks/tasks';
+import { TasksListPage } from '../taskslist/taskslist';
 import { CalendarsPage } from '../calendars/calendars';
 import { AbooksPage } from '../abooks/abooks';
 import { StoragePage } from '../storage/storage';
@@ -47,7 +47,7 @@ export class HomePage {
     this.nav.push(NotesListPage)
   }
   public tasks(){
-    this.nav.push(TasksPage, {"sessionid": this.sessionid})
+    this.nav.push(TasksListPage, {"sessionid": this.sessionid})
   }
   public storage(){
     this.nav.push(StoragePage, {"sessionid": this.sessionid})
@@ -66,14 +66,18 @@ export class HomePage {
   loadNews(){
     this.homeService.getNews(this.sessionid).subscribe(datas => {
       this.msgNb = datas.msgNb
-      if (this.msgNb == 1 ){
-        //alert("Vous avez 1 nouveau message");
+      /*if (this.msgNb == 1 ){
+        //alert("Vous avez 1 nouveau message");*/
         this.localNotifications.schedule({
           id: 1,
           text: 'Vous avez 1 noveau message',
           sound: 'file://beep.caf',
-          data: { secret : this.key }        })
-      } 
+          data: { secret : this.key }   
+        });
+        this.localNotifications.on("click", function(notifications){
+          //joinMeeting(notifications.data.secret)
+        })
+    /*} 
       if (this.msgNb > 1 ){
         //alert("Vous avez "+ this.msgNb +" nouveau message");
         this.localNotifications.schedule({
@@ -81,7 +85,7 @@ export class HomePage {
           text: 'Vous avez '+ this.msgNb + 'noveaux messages',
           sound: 'file://beep.caf',
           data: { secret : this.key }        })
-      }
+      }*/
     })
   }
 }

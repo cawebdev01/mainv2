@@ -1,0 +1,22 @@
+<!--
+  Generated template for the TaskslistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>taskslist</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item text-wrap *ngFor="let task of data">
+      {{ task.label }} / {{ task.id }} / {{ task.objectId }}<br>
+    </ion-item>
+  </ion-list>
+</ion-content>

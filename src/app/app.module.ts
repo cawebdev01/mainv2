@@ -26,6 +26,7 @@ import { CalendarPage } from '../pages/calendar/calendar';
 import { StoragePage } from '../pages/storage/storage';
 import { TaskPage } from '../pages/task/task';
 import { DocPage } from '../pages/doc/doc';
+import { TasksListPage } from '../pages/taskslist/taskslist';
 import { TasksPage } from '../pages/tasks/tasks';
 import { MailsService } from '../providers/mails-service';
 import { AbooksService } from '../providers/abooks-service';
@@ -54,6 +55,7 @@ import { HomeService } from '../providers/home-service';
     StoragePage,
     TaskPage,
     TasksPage,
+    TasksListPage,
 
   ],
   imports: [
@@ -83,6 +85,7 @@ import { HomeService } from '../providers/home-service';
     StoragePage,
     TaskPage,
     TasksPage,
+    TasksListPage,
 
   ],
   providers: [

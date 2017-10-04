@@ -7,7 +7,7 @@ import * as moment from 'moment';
   templateUrl: 'calendar.html'
 })
 export class CalendarPage {
-  eventSource = [];
+ /* eventSource = [];
   viewTitle: string;
   selectedDay = new Date();
  
@@ -56,5 +56,5 @@ export class CalendarPage {
  
   onTimeSelected(ev) {
     this.selectedDay = ev.selectedTime;
-  }
+  }*/
 }

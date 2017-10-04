@@ -15,7 +15,7 @@ export class TasksService {
     this.url =localStorage.getItem('url');
   }
   getTasksList(sessionid){
-    return this.http.get(this.url+'')
+    return this.http.get(this.url+'/cgi-bin/mobiletasks?ACT_TASKLIST_LIST=1&tpl=tasklist_list&ID='+sessionid).map((res:Response) => res.json());
   }
   getTasks(sessionid){
     return this.http.get(this.url+'/cgi-bin/mobiletasks?ACT_TASK_LIST=1&SORT=&TLUID=1&allowAccessMode=&tpl=tasklist_content&ID='+sessionid+'&nocache=172769.18304377276&_=1505806318500').map((res:Response) => res.json());
