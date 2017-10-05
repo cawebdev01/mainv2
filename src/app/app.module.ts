@@ -24,6 +24,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { CalendarsPage } from '../pages/calendars/calendars';
 import { CalendarPage } from '../pages/calendar/calendar';
 import { StoragePage } from '../pages/storage/storage';
+import { StoragelistPage } from '../pages/storagelist/storagelist';
 import { TaskPage } from '../pages/task/task';
 import { DocPage } from '../pages/doc/doc';
 import { TasksListPage } from '../pages/taskslist/taskslist';
@@ -53,6 +54,7 @@ import { HomeService } from '../providers/home-service';
     CalendarsPage,
     DocPage,
     StoragePage,
+    StoragelistPage,
     TaskPage,
     TasksPage,
     TasksListPage,
@@ -83,6 +85,7 @@ import { HomeService } from '../providers/home-service';
     CalendarsPage,
     DocPage,
     StoragePage,
+    StoragelistPage,
     TaskPage,
     TasksPage,
     TasksListPage,

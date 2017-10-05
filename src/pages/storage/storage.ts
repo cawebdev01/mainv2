@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { StorageService } from '../../providers/storage-service';
+import { DocPage } from '../doc/doc';
 
 /**
  * Generated class for the StoragePage page.
@@ -33,8 +34,8 @@ export class StoragePage {
     this.data = docs.data
     })
   }
-  doc(){
-    //this.docsService.getDocs()
+  loadDoc(folderid, objectid){
+    this.navCtrl.push(DocPage, {"folderid": folderid, "fileid": objectid});
   }
 
 

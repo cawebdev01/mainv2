@@ -14,7 +14,7 @@ export class TasksListPage {
     public navParams: NavParams,
     private tasksservice: TasksService,
   ) {
-    this.sessionid = navParams.get("sessionid");
+    this.sessionid = localStorage.getItem("sessionid");
     this.loadTasksList();
   }
   data; status;

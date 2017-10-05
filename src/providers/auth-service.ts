@@ -27,7 +27,9 @@ export class AuthService {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
 
-    this.http.post(/*'https://webmailstafftest.aruba.it/authenticate.php?login='+credentials.email+'&password='+credentials.password+'&lang=en&service=leggera'*/'http://www1.dc.xandmail.com/ca/testbuild_aruba_staff/authenticate.php?login='+credentials.email+'&password='+credentials.password+'&lang='+credentials.lang+'&NEWMOBILE='+credentials.NEWMOBILE, JSON.stringify(credentials), {headers:headers})
+    this.http.post(
+      /*'https://webmailstafftest.aruba.it/authenticate.php?login='+credentials.email+'&password='+credentials.password+'&lang=en&service=leggera'*/ 'http://www1.dc.xandmail.com/ca/testbuild_aruba_staff/authenticate.php?login='+credentials.email+'&password='+credentials.password+'&lang='+credentials.lang+'&NEWMOBILE='+credentials.NEWMOBILE, JSON.stringify(credentials), {headers:headers})
+      /*'http://www1.dc.xandmail.com/ca/testbuild_leggera/cgi-bin/ajaxmail?Act_Msgs=1&Tpl=login&LOGIN='+credentials.email+'&PASSWD='+credentials.password+'&SG_Lang=en', JSON.stringify(credentials), {headers: headers})*/
       .subscribe(res => {
         resolve(res.json());
       }, (err) => { 

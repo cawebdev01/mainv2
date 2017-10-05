@@ -8,7 +8,7 @@ import { NotesListPage } from '../noteslist/noteslist';
 import { TasksListPage } from '../taskslist/taskslist';
 import { CalendarsPage } from '../calendars/calendars';
 import { AbooksPage } from '../abooks/abooks';
-import { StoragePage } from '../storage/storage';
+import { StoragelistPage } from '../storagelist/storagelist';
 import { HomeService } from '../../providers/home-service';
 
 @Component({
@@ -47,10 +47,10 @@ export class HomePage {
     this.nav.push(NotesListPage)
   }
   public tasks(){
-    this.nav.push(TasksListPage, {"sessionid": this.sessionid})
+    this.nav.push(TasksListPage)
   }
   public storage(){
-    this.nav.push(StoragePage, {"sessionid": this.sessionid})
+    this.nav.push(StoragelistPage)
   }
   public calendars(){
     this.nav.push(CalendarsPage, {"sessionid": this.sessionid})

@@ -15,9 +15,10 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item  text-wrap *ngFor="let doc of data" (click)="doc()">
+    <ion-item  text-wrap *ngFor="let doc of data">
+      <p (click)="loadDoc(this.folderid, doc.objectId)">
       <img src="{{ doc.image }}" alt="">
-      {{ doc.name }} / {{ doc.size }}  
+      {{ doc.name }} / {{ doc.size }}  </p>
     </ion-item>
   </ion-list>
     {{ sessionid}} <br>

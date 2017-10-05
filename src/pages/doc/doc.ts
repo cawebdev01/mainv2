@@ -1,24 +1,30 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the DocPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { NavController, NavParams } from 'ionic-angular';
+import { StorageService } from '../../providers/storage-service';
 
 @Component({
   selector: 'page-doc',
   templateUrl: 'doc.html',
 })
 export class DocPage {
+  public sessionid;
+  private folderid;
+  private fileid; 
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private storageservice: StorageService,
+  ) {
+    this.sessionid = localStorage.getItem("sessionid");
+    this.fileid = navParams.get("fileid");
+    this.folderid = navParams.get("folderid");
+    this.loadFile();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
+  loadFile(){
+    this.storageservice.getDoc(this.sessionid, this.folderid, this.fileid).subscribe(file => {
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DocPage');
+    })
   }
 
 }

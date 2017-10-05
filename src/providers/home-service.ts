@@ -10,9 +10,11 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class HomeService {
-
-  constructor(public http: Http) {  }
+  url;
+  constructor(public http: Http) {
+    this.url = localStorage.getItem('url');
+    }
   getNews(sessionid){
-    return this.http.get('http://www1.dc.xandmail.com/ca/testbuild_aruba_staff/cgi-bin/mobilemail?Act_Msgs_Unread_List=1&Tpl=mail_list&ID='+sessionid).map((res:Response)=> res.json());
+    return this.http.get(this.url+'/cgi-bin/mobilemail?Act_Msgs_Unread_List=1&Tpl=mail_list&ID='+sessionid).map((res:Response)=> res.json());
   }
 }

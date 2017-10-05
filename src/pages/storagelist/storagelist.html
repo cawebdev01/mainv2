@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Storage Folders</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card text-wrap *ngFor="let f of data">
+    <span (click)="foldercontent(f.objectId)" text-center> 
+      <br><br>
+      <p *ngIf="f.label==''">
+        Personnal
+      </p>
+      <p *ngIf="f.label!=''">
+        {{ f.label }} <br>
+      </p>
+      <br><br>
+    </span>
+  </ion-card>
+   
+</ion-content>
