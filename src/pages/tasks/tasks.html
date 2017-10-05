@@ -14,7 +14,7 @@
 
 
 <ion-content padding>
-  l'id de la session est {{ sessionid}} <br>
+  l'id de la session est {{ sessionid }} <br>
   <ion-list>
     <ion-item text-wrap *ngFor="let task of data">
       <p  (click)="taskdetail(task.objectId, this.tsklistid)">{{ task.title }} <br>

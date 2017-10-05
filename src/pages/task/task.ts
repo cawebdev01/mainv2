@@ -23,11 +23,11 @@ export class TaskPage {
   }
   loadDetails(){
     this.tasksService.getTask(this.sessionid, this.tsklistid, this.objid).subscribe(task => {
-      this.title = task.name;
-      this.priority = task.priority;
-      this.state = task.state;
-      this.percent = task.percent;
-      this.comment = task.comment;
+      this.title = task.data.label;
+      this.priority = task.data.priority;
+      this.state = task.data.state;
+      this.percent = task.data.percent;
+      this.comment = task.data.comment;
     })
   }
 }

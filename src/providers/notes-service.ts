@@ -9,12 +9,12 @@ export class NotesService {
     this.url = localStorage.getItem('url');
   }
   getNotesLists(sessionid){
-    return this.http.get(this.url+'/cgi-bin/mobilenotes?ACT_NOTELIST_LIST=1&tpl=notelist_list&ID='+sessionid).map((res:Response) => res.json());
+    return this.http.get(this.url+'/cgi-bin/ajaxnotes?ACT_NOTE_LIST=1&Tpl=notelist_list&ID='+sessionid).map((res:Response) => res.json());
   }
   getNotes(sessionid, listid){
-    return this.http.get(this.url+'/cgi-bin/mobilenotes?ACT_NOTE_LIST=1&SORT=&NLUID='+listid+'&allowAccessMode=&tpl=notelist_content&ID='+sessionid+'&nocache=447788.3230796249').map((res:Response)=> res.json());
+    return this.http.get(this.url+'/cgi-bin/ajaxnotes?ACT_NOTE_LIST=1&tpl=notelist_content&NLUID='+listid+'&GOPAGE=1&allowAccessMode=0&ID='+sessionid).map((res:Response)=> res.json());
   }
   getNote(sessionid, listid, objectid){
-    return this.http.get(this.url+'/cgi-bin/mobilenotes?ACT_NOTE=1&tpl=noteedit&NUID='+objectid+'&NLUID='+listid+'&ID='+sessionid).map((res:Response)=>res.json());
+    return this.http.get(this.url+'/cgi-bin/ajaxnotes?ACT_NOTE=1&tpl=noteedit&NUID='+objectid+'&NLUID='+listid+'&ID='+sessionid).map((res:Response)=>res.json());
   }
 }

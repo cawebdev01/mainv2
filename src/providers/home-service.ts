@@ -15,6 +15,6 @@ export class HomeService {
     this.url = localStorage.getItem('url');
     }
   getNews(sessionid){
-    return this.http.get(this.url+'/cgi-bin/mobilemail?Act_Msgs_Unread_List=1&Tpl=mail_list&ID='+sessionid).map((res:Response)=> res.json());
+    return this.http.get(this.url+'/cgi-bin/ajaxmail?Act_Msgs_Unread_List=1&Tpl=mail_list&ID='+sessionid).map((res:Response)=> res.json());
   }
 }

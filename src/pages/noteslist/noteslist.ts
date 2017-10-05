@@ -34,7 +34,8 @@ export class NotesListPage {
   loadNotesLists(){
     this.notesService.getNotesLists(this.sessionid).subscribe(notes => {
       this.status = notes.status,
-      this.data = notes.data
+      this.data = notes.itemslists
+      //this.data = notes.data
     })
   }
   getnotes(objectid){

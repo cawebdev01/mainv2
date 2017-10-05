@@ -15,12 +15,12 @@ export class AbooksService {
     this.url = localStorage.getItem('url');
     }
   getAbooks(sessionid){
-    return this.http.get(this.url+'/cgi-bin/mobilepab?ACT_CL_TB=1&FVAL=4&SENS=0&ONLYCT=1&ABID=&tpl=contact_list_light&ID='+sessionid).map((res:Response) => res.json());
+    return this.http.get(this.url+'/cgi-bin/ajaxpab?ACT_CL_TB=1&FVAL=4&SENS=0&ONLYCT=1&ABID=&tpl=contact_list_light&ID='+sessionid).map((res:Response) => res.json());
   }
   getAbook(sessionid, abid){
-    return this.http.get(this.url+'/cgi-bin/mobilepab?ACT_CL_TB=1&FVAL=4&SENS=0&ONLYCT=1&ABID='+abid+'&tpl=contact_list&ID='+sessionid).map((res: Response)=> res.json());
+    return this.http.get(this.url+'/cgi-bin/ajaxpab?ACT_CL_TB=1&FVAL=4&SENS=0&ONLYCT=1&ABID='+abid+'&tpl=contact_list&ID='+sessionid).map((res: Response)=> res.json());
   }
   getContact(sessionid, abid, cid){
-    return this.http.get(this.url+'/cgi-bin/mobilepab?ACT_CT_LEDIT=1&tpl=contact_edit&CUID='+cid+'&ABID='+abid+'&ID='+sessionid).map((res: Response)=> res.json());
+    return this.http.get(this.url+'/cgi-bin/ajaxpab?ACT_CT_LEDIT=1&tpl=contact_edit&CUID='+cid+'&ABID='+abid+'&ID='+sessionid).map((res: Response)=> res.json());
   }
 }
